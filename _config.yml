@@ -1,0 +1,48 @@
+# This is the default format.
+# For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink: /:categories/:year/:month/:day/:title
+
+exclude: [".rvmrc", ".rbenv-version", "ReadMe.md", "Rakefile", "changelog.md", "License.md"]
+highlighter: rouge
+
+# Many of the plugins make use of these variables
+title : Data Transfer Initiative
+description: Home page for the Data Transfer Initiative, a nonprofit organization dedicated to promoting data transfers
+logo: /images/favicon.png
+social:
+  name: Data Transfer Initiative
+  links:
+    - https://techpolicy.social/@DTinitiative
+    - https://www.linkedin.com/company/data-transfer-initiative/
+    - https://github.com/dtinit
+
+# NOTE: If replacing this next line with your own URL, you likely want "https://" not "http://"
+production_url : https://dtinit.org
+
+# Tell Github to use the kramdown markdown interpreter
+# (see https://help.github.com/articles/migrating-your-pages-site-from-maruku)
+markdown: kramdown
+
+collections:
+  posts:
+    layout: post
+    output: true
+    permalink: /blog/:year/:month/:day/:title
+
+  jobs:
+    layout: job
+    output: true
+
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - 
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      logo: light
+      thumbnail: /images/blog/Firefly-notepad-green-desk.jpg

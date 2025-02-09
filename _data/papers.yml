@@ -1,0 +1,91 @@
+- name: "DTI's 2024 Annual Report"
+  author: Data Transfer Initiative
+  date: 2025-01-28
+  url: "/assets/DTI-Annual-Report-2024.pdf"
+  tags:
+    - Global
+    - privacy
+    - policy
+    - Reports
+- name: "Global Data Portability"
+  author: Data Transfer Initiative
+  date: 2025-01-16
+  url: "/assets/DTIvisionpaperGlobal.pdf"
+  tags:
+    - Global
+    - privacy
+    - policy
+- name: "US Data Portability"
+  author: Data Transfer Initiative
+  date: 2024-11-19
+  url: "/assets/DTIvisionpaperUS.pdf"
+  tags:
+    - US
+    - privacy
+    - policy
+- name: "UK Data Portability"
+  author: Data Transfer Initiative
+  date: 2024-08-09
+  url: "/assets/DTIvisionpaperUK.pdf"
+  tags:
+    - UK
+    - privacy
+    - policy
+- name: "EU Data Portability"
+  author: Data Transfer Initiative
+  date: 2024-05-11
+  url: "/assets/DTIvisionpaper.pdf"
+  tags:
+    - EU
+    - privacy
+    - policy
+- name: "Right to Data Portability"
+  author: Data Transfer Initiative
+  date: 2024-07-26
+  url: "/assets/Right_to_data_portability.pdf"
+  tags:
+    - privacy
+    - policy
+- name: "User Data Portability Threat Model"
+  author: Lisa Dusseault
+  date: 2024-06-10
+  url: "/assets/ThreatModel.pdf"
+  tags:
+      - privacy
+      - architecture
+- name: "DTI Data Portability Compendium"
+  author: Delara Derakhshani
+  date: 2024-05-01
+  url: "/assets/DTI-Data-Portability-Compendium.pdf"
+  tags:
+      - EU
+      - policy
+      - research
+- name: "Our First Ever Annual Report"
+  author: Chris Riley
+  date: 2023-10-01
+  url: "/assets/DTI-Annual-Report-2023.pdf"
+  tags:
+    - EU
+    - policy
+- name: "Tech Policy Press Article"
+  author: Delara Derakhshani
+  date: 2023-08-24
+  url: "/assets/TPP-direct-data-transfers.pdf"
+  tags:
+    - EU
+    - policy
+- name: "2020 Comments to the FTC"
+  author: Chris Riley
+  date: 2020-08-21
+  url: "https://www.regulations.gov/document/FTC-2020-0062-0010"
+  tags:
+      - policy
+      - US
+- name: "Legislative Landscape"
+  author: Chris Riley
+  date: 2023-08-09
+  url: "assets/dti-leglandscape.pdf"
+  tags:
+    - EU
+    - policy

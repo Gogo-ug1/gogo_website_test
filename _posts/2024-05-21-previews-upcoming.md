@@ -1,0 +1,25 @@
+---
+title: Previews of Upcoming DTI Activity
+tags: news
+author: Chris Riley
+excerpt: "At DTI we are planning for the future. Here’s a window into what lies ahead."
+thumbnail: /images/blog/coming-soon.jpg
+---
+
+On February 1 of this year, DTI released its [first annual report](https://dtinit.org/assets/DTI-Annual-Report-2023.pdf). In it, here’s what we said would be on tap for 2024: “We’ll be expanding our scale and scope of technical work, producing more original portability written work, and shipping new kinds of outputs, including a “portability map” and our first hosted in-person event. We hope and expect to make positive contributions to key portability regulatory implementations, including but not limited to the Digital Markets Act in the European Union, and to bring more companies and services into the growing data transfer ecosystem.”
+
+With only a few weeks until the mid-year mark, I’m happy to report that we’re making progress on all of these fronts, and more. (We shipped the first version of [Portability Map](https://portmap.dtinit.org/)! And we’re still reveling in the success of our [all-day Data Transfer Summit](https://www.techpolicy.press/reporting-out-on-the-data-transfer-summit-a-day-of-portability-for-a-future-of-empowerment/) in Washington, D.C.) But this article will focus instead on the future, providing some previews of what lies ahead for DTI.
+
+Most immediately, Director of Policy Delara Derakhshani is hosting a workshop this week at CPDP in Brussels, “[Data portability’s new horizons: AI, the DMA, and the quest for online sovereignty](https://www.cpdpconferences.org/cpdp-panels/data-portabilitys-new-horizons-ai-the-dma-and-the-quest-for-online-sovereignty).” For those of you at the event, come check it out! Location and other logistics are at the link.
+
+Another big area of focus for us this year is trust. In our annual report, we didn’t specifically call out trust as an area of work in 2024 for DTI - we were in the midst of creating what became our initial [Trust Model Report](https://dtinit.org/docs/TrustModelReport.pdf), released in early March. Both through and since that exercise, we’ve continued learning about the richness of the landscape of trust services in the digital space. For example, DTI’s Chief Technology Officer Lisa Dusseault connected with Northern Block, whose [Orbit platform](https://trustregistry.nborbit.ca/) helps build industry-vertical specific trust registries. From broad architectural proposals like [Prometheus-X](https://prometheus-x.org/), to the everyday experience of businesses [small](https://www.codepolicy.org/post/building-trust-for-data-transfers) and [large](https://www.linkedin.com/feed/update/urn:li:activity:7183327793240305664/), trust matters.
+
+So we’re going to continue to invest in trust. We’ve recently signed an outside firm to help us prepare a more granular and implementable version of the model in our report appendix. And we’re mapping out what it would take to build a pilot portability trust registry applicable to our scope and functions.
+
+[On the same day](https://dtinit.org/blog/2024/03/06/announcements) that we released the Trust Model Report, we also announced public availability of our [Portability Map](https://portmap.dtinit.org/) tool (which we did call out in the annual report!). Since early March, we’ve continued to make core engineering investments and improve performance and completeness. But the best is yet to come for that project, as we go out to a broader community to seek contributions to our [open-source article repository](https://github.com/dtinit/portability-articles) and to raise awareness.
+
+While the numbers on Portability Map usage are preliminary, we can already learn some things, such as that the most queried data type is “Photos” which has long been a focus area for Data Transfer Project powered portability tools. We hope that greater use of Portability Map will enrich the signals we can get from real-world users seeking portability options, and thereby help us prioritize future investments in data transfer tools.
+
+Speaking of which: Later this year, working with our partners, we will be shipping more DTP-powered transfer tools, including for music [as I previewed](https://dtinit.org/blog/2024/03/26/progress-portability-solutions) earlier this year. We have more policy research and events ahead, including the release of our compendium of independent scholarly research as a final edited volume. And there are some exciting activities on tap for London in the fall.
+
+Thank you for joining us along this journey, whether it’s through [the email newsletter](https://dtinit.org/#mc_embed_signup) or [the blog](https://dtinit.org/blog/), or [Threads](https://www.threads.net/) or [Mastodon](https://techpolicy.social/@dtinitiative) or [LinkedIn](https://www.linkedin.com/company/data-transfer-initiative/) or wherever you connect with DTI. If you’re interested in contributing to our efforts, we’d especially love your help testing out [Portability Map](https://portmap.dtinit.org/), contributing articles (or [code](https://github.com/dtinit/portmap)!), and spreading the word.
