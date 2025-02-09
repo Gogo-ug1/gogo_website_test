@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Establishing trust in data portability - DTI’s Trust Model | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Establishing trust in data portability - DTI’s Trust Model" />
+<meta name="author" content="Chris Riley" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We are publishing in “beta” a more granular Trust Model, building on our prior work. Input is encouraged as we look to put this model into practice." />
+<meta property="og:description" content="We are publishing in “beta” a more granular Trust Model, building on our prior work. Input is encouraged as we look to put this model into practice." />
+<link rel="canonical" href="http://localhost:4000/blog/2024/12/03/establishing-trust-model" />
+<meta property="og:url" content="http://localhost:4000/blog/2024/12/03/establishing-trust-model" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-03T00:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Establishing trust in data portability - DTI’s Trust Model" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chris Riley"},"dateModified":"2024-12-03T00:00:00+03:00","datePublished":"2024-12-03T00:00:00+03:00","description":"We are publishing in “beta” a more granular Trust Model, building on our prior work. Input is encouraged as we look to put this model into practice.","headline":"Establishing trust in data portability - DTI’s Trust Model","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2024/12/03/establishing-trust-model"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"},"name":"Chris Riley"},"url":"http://localhost:4000/blog/2024/12/03/establishing-trust-model"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header light">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-light-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav light">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <div class="blog-content">
+  <div class="post-meta">
+    <span>Chris Riley</span>
+    <time class="post-date" datetime="">
+      Dec 3, 2024
+    </time><div>
+      <ul class="post-tags"><li>trust</li></ul>
+    </div></div>
+
+  <h1>Establishing trust in data portability - DTI's Trust Model</h1>
+
+  <p>Our goal at the Data Transfer Initiative is to be the global leader on user-driven, end-to-end data portability. We help shepherd best-in-class open-source portability tools, build resources like <a href="https://portmap.dtinit.org/">Portability Map</a> to engage broader audiences, and offer our support to stakeholders across the ecosystem working on portability in a variety of respects. Our <a href="https://dtinit.org/assets/dti-onepager.pdf">product and policy principles</a> articulate what we believe to be necessary to realize our mission of empowering people through a vibrant ecosystem of safe and secure data transfers.</p>
+
+<p>To that end, I’m pleased to share today a new “beta” version of DTI’s <a href="https://dtinit.org/docs/TrustModel_Nov2024.pdf">Trust Model</a>. Our initial <a href="https://dtinit.org/docs/TrustModelReport.pdf">Trust Model Report</a>, released in March of this year, described the role and nature of trust in the context of data portability, and included in its Appendix an initial, high-level trust model. This “v2” model is intended as an expansion and successor to that Appendix. It offers more granular and specific criteria we believe are important for establishing trust in server-to-server data transfers, derived in part from our own <a href="https://dtinit.org/assets/ThreatModel.pdf">threat model</a> work.</p>
+
+<p>Understanding the intended use of this model is key to understanding its effects. The model is intended to facilitate information sharing to promote trust and mitigate risk in the context of data portability transactions, rather than serve as a litmus test for the establishment of a relationship or to establish a legal contract. Use of a model and shared terms in this broader context is preferable to the use of independent and unconnected mechanisms, particularly in that it facilitates greater neutrality and consistent application of review. That said, we expect organizations to use this Trust Model within the context of their specific needs.</p>
+
+<p>Here are a few additional considerations for proper use of this model:</p>
+
+<ul>
+  <li>The model is intended to facilitate trusted relationships for data portability, not to represent compliance or the ability to comply with any laws, including the EU’s Digital Markets Act.</li>
+  <li>Some questions in the model extend beyond regulatory considerations. In this exercise, we chose to err on the side of comprehensiveness, with the intention of global applicability, and in transactions between a wide range of parties.</li>
+  <li>Example artifacts listed are *illustrative *examples and are not intended to be exhaustive, or even necessary to address these criteria. In addition, a single artifact (e.g., privacy policy) may apply to multiple criteria.</li>
+  <li>Context is key in establishing a trust relationship. Answers that suffice for one context may not for another, such as a more sensitive data type.</li>
+  <li>The goal should not be to ‘score 100%’ on this. The model doesn’t require asking specific questions in any or all circumstances; and it includes no thresholds to establish sufficient trust, as such levels are highly contextual.</li>
+  <li>The model includes questions regarding the jurisdiction and compliance obligations of the transfer parties. These are meant to provide contextual awareness of the practices in place, not judgmental value nor intended to validate legal compliance.</li>
+  <li>Balance is key in all respects. Answers should be as simple and consolidated as possible, such as by providing an established privacy policy. At the same time, there should be room to elaborate and have a dialogue between the transfer parties, where nuance and contextual explanation can help produce trust.</li>
+  <li>Relevant risks identified are based upon DTI’s threat/risk model and are not intended to convey a uniform level of risk or any level of risk reduction based on the Trust Model.</li>
+</ul>
+
+<p>Because of the significance of the EU’s DMA as a regulatory instrument, data portability is often viewed from that lens, particularly in policy circles. In many ways, EU to EU transfers between parties that are presumed to be in compliance with the GDPR represent the “easy” case for trust. Things like privacy policies are required, and *prima facie *checks with regard to many of the elements of this model should generally be sufficient, at least in the absence of contrary indications of concern. But the internet is global, and transfer parties have global userbases, and a comprehensive trust model designed to be future-proof yet also allow for tailored application in more straightforward situations is more useful than something specifically designed for the EU context.</p>
+
+<p>We refer to today’s release as a “beta” product in the sense that we do not consider it to be final. Over the coming weeks, we will incorporate additional input and thinking into a final version, to be released in the spring, as we develop future workstreams to promote trust in the data portability ecosystem.</p>
+
+<p><a href="https://dtinit.org/docs/TrustModel_Nov2024.pdf">Take a look</a>, and <a href="https://dtinit.org/contact-us">let us know what you think</a>!</p>
+
+
+  <br/>
+  <br/>
+  <div class="post_next"><a class="button" href="/blog/2024/12/17/reciprocity-returns">Next Post</a></div>
+  <div class="post_previous">
+    <a class="button" href="/blog/2024/11/19/encouraging-public-engagement">Previous Post</a>
+  </div>
+
+
+</div>
+<div class="blog-sidebar">
+
+  <section>
+    <div >
+        <h2 style="text-align: center">Catch up on the latest from DTI</h2>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/28/year-3-growth">
+            <strong>
+                Year 3 for DTI brings growth
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-28 00:00:00 +0300">
+            January 28, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">social</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/14/what-ban-data">
+            <strong>
+                What the TikTok ban means for your data
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-14 00:00:00 +0300">
+            January 14, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/17/reciprocity-returns">
+            <strong>
+                Reciprocity and holiday returns
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-17 00:00:00 +0300">
+            December 17, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/03/establishing-trust-model">
+            <strong>
+                Establishing trust in data portability - DTI&#39;s Trust Model
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-03 00:00:00 +0300">
+            December 3, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">engagement</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/19/encouraging-public-engagement">
+            <strong>
+                Data portability and public engagement
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-19 00:00:00 +0300">
+            November 19, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/05/us-vision-paper">
+            <strong>
+                A policy vision for portability in the United States
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-05 00:00:00 +0300">
+            November 5, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/22/trusted-data-access">
+            <strong>
+                Trusted data access and transfer, in many contexts
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-22 00:00:00 +0300">
+            October 22, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/08/global-policy-round-up">
+            <strong>
+                Global Data Portability Policy Round-Up
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-08 00:00:00 +0300">
+            October 8, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/24/spaces-portability">
+            <strong>
+                Data spaces and data portability
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-24 00:00:00 +0300">
+            September 24, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/10/uk-vision-paper">
+            <strong>
+                DTI’s UK tech policy vision
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-10 00:00:00 +0300">
+            September 10, 2024
+        </time>
+
+        <br/>
+
+        
+    </div>
+</section>
+
+
+</div>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,1 +1,2 @@
 partners.html partners@2025
+git status

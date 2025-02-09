@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data is binary, but that doesn’t make portability simple. | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Data is binary, but that doesn’t make portability simple." />
+<meta name="author" content="Chris Riley" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Data sometimes feels like the simplest thing in the world. It’s just a bunch of 1’s and 0’s, right? Often we treat all data the same. For portability, however, we cannot" />
+<meta property="og:description" content="Data sometimes feels like the simplest thing in the world. It’s just a bunch of 1’s and 0’s, right? Often we treat all data the same. For portability, however, we cannot" />
+<link rel="canonical" href="http://localhost:4000/blog/2023/08/28/data-is-binary-but" />
+<meta property="og:url" content="http://localhost:4000/blog/2023/08/28/data-is-binary-but" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-28T00:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Data is binary, but that doesn’t make portability simple." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chris Riley"},"dateModified":"2023-08-28T00:00:00+03:00","datePublished":"2023-08-28T00:00:00+03:00","description":"Data sometimes feels like the simplest thing in the world. It’s just a bunch of 1’s and 0’s, right? Often we treat all data the same. For portability, however, we cannot","headline":"Data is binary, but that doesn’t make portability simple.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2023/08/28/data-is-binary-but"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"},"name":"Chris Riley"},"url":"http://localhost:4000/blog/2023/08/28/data-is-binary-but"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header light">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-light-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav light">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <div class="blog-content">
+  <div class="post-meta">
+    <span>Chris Riley</span>
+    <time class="post-date" datetime="">
+      Aug 28, 2023
+    </time><div>
+      <ul class="post-tags"><li>challenges</li></ul>
+    </div></div>
+
+  <h1>Data is binary, but that doesn’t make portability simple.</h1>
+
+  <p>Data sometimes feels like the simplest thing in the world. It’s just a bunch of 1’s and 0’s, right?
+Often we treat all data the same, whether we’re looking at the storage capacity of a new smartphone 
+(do we really need 512GB?) or when Dropbox tells us we’re out of storage space yet again.</p>
+
+<p>The metaphors we use double down on homogeneity too. How many times have you heard “Data is the new oil”? Or “money”? Fortunately such blunt comparisons have been widely debunked. But ideas are sticky. Like … oil.</p>
+
+<h2 id="portability-is-complex-because-data-is-complex">Portability is complex because data is complex.</h2>
+
+<p>My first article in this content series was about the <a href="https://www.linkedin.com/pulse/complex-problem-space-data-portability-chris-riley/">complex problem space of data portability</a>. One big thing missing from that narrative was the inherent complexity of data itself. When you want to actually <em>do things</em> with data, suddenly everything gets complicated, and the differences matter.</p>
+
+<p>Those of us who have been using computers for decades have so many of these stories. Remember re-formatting disks to work in Windows or Mac, but never both? Remember opening a document written in Word Perfect in Word? (If anyone reading this remembers <a href="https://en.wikipedia.org/wiki/Endianness#:~:text=Endianness%20is%20primarily%20expressed%20as,byte%20at%20the%20smallest%20address.">“little-endian” and “big-endian”</a> – join the club.)</p>
+
+<p>Fortunately, the digital world has evolved, and a lot of these friction points have been smoothed over. Still, though, even services that do roughly the same things – think cloud-based photo archiving – don’t store or process the same kinds of data in the same ways. You can’t just grab a blob of data from one service and put it in another and assume it will work; a translation or adaptation will be needed. And that’s code that someone, somewhere, needs to write and host and pay for the compute cycles to run.</p>
+
+<p>Now look at the problem space of data portability. (Forgive me, as this was in my last email, but I have to share <a href="https://www.instagram.com/reel/Cv5XbLxAsQ_/?igshid=MzRlODBiNWFlZA%3D%3D">this Instagram Reel again</a>.) To transfer a user’s data from one service to another, you have to find it, translate it, and make sure the recipient of the data can use it.</p>
+
+<h2 id="yes--i-said-find-it">Yes – I said “find it.”</h2>
+
+<p>I was thinking about this just in the context of DTI, a very new organization, and the systems we’ve set up to manage our own processes. (We don’t really have personal data other than employee data, so it’s a bit of an apples and oranges comparison, but bear with me.)</p>
+
+<p>I keep my personal todo list in Asana; we’re using Miro to develop metrics and other visual exercises; we had tried out Trello briefly but now are using AirTable for project status and some management functions; we have a Google workspace account for email and documents; and we communicate over Slack. Oh, and employee data is separate; it’s with our payroll provider. We’re far from alone in having business data scattered across many servers.</p>
+
+<p>Of course, the General Data Protection Regulation was adopted in 2016, and businesses who hold users’ personal data have had years to implement its portability and other data access obligations. It’s not that finding a user’s personal data can’t be done; just that it isn’t always as simple as going into a database and saying “give me all the records on user 24601.” In fact, there are companies like <a href="https://www.datagrail.io/platform/">DataGrail</a> that include, as part of their business pitch, a function to “Detect personal data, no matter where it lives.”</p>
+
+<h2 id="once-you-find-it-you-need-to-figure-out-what-to-do-with-it">Once you find it, you need to figure out what to do with it.</h2>
+
+<p>Translating data formats is perhaps the raison d’etre of DTI as an organization, and the Data Transfer Project as a technology: we offer a coordination process to produce, and an open repository in which to store, software adapters that can bridge the semantic and syntactic gaps between import and export APIs of different services.</p>
+
+<p>We implement portability not in raw blobs, but intentionally, with understanding and knowledge of each data type being moved. Our tech centers on a shared “data model” that articulates the core of the user’s experience to be transferred between services. It’s not hard to create <em>a</em> representation of data, or a way of structuring data for use; but it’s hard to get several parties to <em>agree</em> on a shared representation of data to make portability meaningful.</p>
+
+<p>One important observation here is that in the DTP approach, a shared data model doesn’t mean that the APIs themselves are aligned. We try to work with APIs as they come, and use adapter code to translate between the API and the data model. That leaves room for unilateral innovation and evolution at the service end and at the API, without inherently requiring changes to the shared data model – just the adapter.</p>
+
+<p>Navigating privacy and data protection is worthwhile and necessary, but not trivial.</p>
+
+<p>The final piece of this problem space (at least in this articulation) is making sure the recipient can use the data. It’s made easier in the DTP model because the user initiates the transaction; it’s thus functionally the same as if that user were uploading their data to the recipient. Where a user is moving their playlists from one streaming music service provider to another, for example, the use case is obviously parallel. But portability may not always be so clear.</p>
+
+<p>I’m fond of saying that the original ethos of Silicon Valley was “collect all the data, store all the data forever, and figure out how to monetize it later.” We live in a very different world today, one in which we assume the existence of data protection laws which require an approach with some amount of data minimization (i.e. don’t collect data you don’t need) and secondary use limitation (i.e. collecting data for one purpose doesn’t authorize its reuse for something else).</p>
+
+<p>All of these are solvable problems – some with code like DTP’s adapters, others with common sense expectation setting and consent signals from users. But building sustainable, user trusted portability solutions requires more work than meets the eye, particularly if you are stuck in a mindset – or operating under a regulatory regime – that treats all data the same.</p>
+
+<h2 id="dti-in-the-news">DTI in the News</h2>
+
+<ul>
+  <li><a href="https://techpolicy.press/the-future-of-data-portability-is-direct-data-transfers/">The Future of Data Portability is Direct Data Transfers</a> (by Delara Derakhshani and Zander Arnao)</li>
+</ul>
+
+
+  <br/>
+  <br/>
+  <div class="post_next"><a class="button" href="/blog/2023/09/01/hello-world">Next Post</a></div>
+  <div class="post_previous">
+    <a class="button" href="/blog/2023/08/01/law-isnt-code">Previous Post</a>
+  </div>
+
+
+</div>
+<div class="blog-sidebar">
+
+  <section>
+    <div >
+        <h2 style="text-align: center">Catch up on the latest from DTI</h2>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/28/year-3-growth">
+            <strong>
+                Year 3 for DTI brings growth
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-28 00:00:00 +0300">
+            January 28, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">social</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/14/what-ban-data">
+            <strong>
+                What the TikTok ban means for your data
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-14 00:00:00 +0300">
+            January 14, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/17/reciprocity-returns">
+            <strong>
+                Reciprocity and holiday returns
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-17 00:00:00 +0300">
+            December 17, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/03/establishing-trust-model">
+            <strong>
+                Establishing trust in data portability - DTI&#39;s Trust Model
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-03 00:00:00 +0300">
+            December 3, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">engagement</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/19/encouraging-public-engagement">
+            <strong>
+                Data portability and public engagement
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-19 00:00:00 +0300">
+            November 19, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/05/us-vision-paper">
+            <strong>
+                A policy vision for portability in the United States
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-05 00:00:00 +0300">
+            November 5, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/22/trusted-data-access">
+            <strong>
+                Trusted data access and transfer, in many contexts
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-22 00:00:00 +0300">
+            October 22, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/08/global-policy-round-up">
+            <strong>
+                Global Data Portability Policy Round-Up
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-08 00:00:00 +0300">
+            October 8, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/24/spaces-portability">
+            <strong>
+                Data spaces and data portability
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-24 00:00:00 +0300">
+            September 24, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/10/uk-vision-paper">
+            <strong>
+                DTI’s UK tech policy vision
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-10 00:00:00 +0300">
+            September 10, 2024
+        </time>
+
+        <br/>
+
+        
+    </div>
+</section>
+
+
+</div>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

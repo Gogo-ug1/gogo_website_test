@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data spaces and data portability | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Data spaces and data portability" />
+<meta name="author" content="Chris Riley" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="DTI’s work on data portability relates to work on Smart Data and data spaces; but there are distinctions in the contexts worth a deeper look." />
+<meta property="og:description" content="DTI’s work on data portability relates to work on Smart Data and data spaces; but there are distinctions in the contexts worth a deeper look." />
+<link rel="canonical" href="http://localhost:4000/blog/2024/09/24/spaces-portability" />
+<meta property="og:url" content="http://localhost:4000/blog/2024/09/24/spaces-portability" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-09-24T00:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Data spaces and data portability" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chris Riley"},"dateModified":"2024-09-24T00:00:00+03:00","datePublished":"2024-09-24T00:00:00+03:00","description":"DTI’s work on data portability relates to work on Smart Data and data spaces; but there are distinctions in the contexts worth a deeper look.","headline":"Data spaces and data portability","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2024/09/24/spaces-portability"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"},"name":"Chris Riley"},"url":"http://localhost:4000/blog/2024/09/24/spaces-portability"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header light">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-light-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav light">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <div class="blog-content">
+  <div class="post-meta">
+    <span>Chris Riley</span>
+    <time class="post-date" datetime="">
+      Sep 24, 2024
+    </time><div>
+      <ul class="post-tags"><li>policy</li></ul>
+    </div></div>
+
+  <h1>Data spaces and data portability</h1>
+
+  <p>One of the cornerstones of the European Union’s data strategy is a substantial investment in <a href="https://digital-strategy.ec.europa.eu/en/policies/data-spaces">European data spaces</a>. But what, exactly, is a “data space”? And how does this effort relate to data portability and the work that DTI is doing? While the goals and infrastructure models between data spaces and data portability differ in some respects, the values motivating them have a good amount of overlap, as do some of the tools and experience that will be needed to implement them.</p>
+
+<p><strong>About data spaces</strong></p>
+
+<p>The concept of a data space is typically framed around a subject, such as a data space for the energy sector, agriculture, or for health data. Digital data relevant to any of these topics can support significant value creation to users. If a business is building, say, a smart energy tool designed to help users reduce their monthly bills, it’s helpful if both the tool providers and end-users are able to access data from a variety of providers on prices and fees. Other stakeholders can benefit from the existence of a data space, including government agencies and businesses in that sector, but it requires investment to achieve interoperability, fairness, and trust.</p>
+
+<p>The sense in which the data is gathered in a “space” is mostly conceptual. It’s not literally housed in one data store or data warehouse. Data is generated by a diverse range of sources and managed by a diverse range of actors, and any attempt to centralize all data within a single sector in a single controlled digital storage would be horribly fragile and would not be conducive to effective use by businesses or people nor to innovation. Instead, the data space concept recognizes that data on energy prices and data on energy usage, for example, are more closely related than they are far apart. An agent that uses one kind of energy data is more likely to produce or consume another kind of energy data, so the schema and trust work can be leveraged for both kinds of data.</p>
+
+<p>Some data in a data space may be collected in a centralized data store to a certain extent. An intermediary, such as one described in the EU’s <a href="https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained">Data Governance Act</a>, might collect data from a large number of sources. It can provide important consistency, anonymization and aggregation functions, allowing more value to be derived from inconsistent data sources or simply to reduce privacy concerns.</p>
+
+<p><strong>The forces behind data spaces and related frames</strong></p>
+
+<p>The EU is funding work on data spaces through the <a href="https://digital-strategy.ec.europa.eu/en/activities/digital-programme">Digital Europe Programme</a>. Organizations such as <a href="https://prometheus-x.org/">Prometheus-X</a> are built in part on this funding, and are developing shared trust frameworks. In the EU, trust frameworks must be mutli-layered, allowing member nations to make their own determinations of which regulators can attest to the trust status of industry participants, while still allowing pan-EU trust questions to be answered and cross-border interoperability to be achieved.</p>
+
+<p>Open source software is not neglected in the policy and regulatory work, although open source licenses by themselves are no guarantee of trust or interoperability. The EU uses the term <a href="https://digital-strategy.ec.europa.eu/en/policies/simpl">Simpl</a> to describe its intention to build open-source tools to facilitate data transfers within its data spaces framework; a consortium of European organizations <a href="https://eviden.com/insights/news/eviden-leads-consortium-to-provide-simpl-open-oss-data-spaces-middleware-to-the-european-commission/">announced earlier this year</a> that it had won the bidding to build the Simpl “middleware” platform.</p>
+
+<p>Many stakeholders in the United Kingdom are participating in the same data space concepts but additionally in a couple other architectures. For example, the proposed General Data Exchange Layer, as articulated by Jon Nash in <a href="https://www.publicfirst.co.uk/rewiring-the-state.html">Rewiring the State - Public First</a>, describes a future where the United Kingdom’s Department for Work and Pensions can, “with one click,” gather information from a range of companies and public sector agencies to determine an individual’s eligibility for benefits. In many cases, the data subject (citizen, resident or business) would approve the data request but then not have to actually fill out the data – instead some other entity that already has the needed data can with that approval satisfy the request. Data request routing, approval, and response automation would significantly reduce paperwork and can if carefully managed reduce fraud.</p>
+
+<p>Relatedly the UK has invested significantly in the concept of Smart Data, led by the <a href="https://assets.publishing.service.gov.uk/media/66190f98679e9c8d921dfe44/smart-data-roadmap-action-the-government-is-taking-in-2024-to-2025.pdf">Department of Business and Trade</a>. Despite its recent change of government, the issue remains alive, having been highlighted in the King’s Speech. DTI just returned from London, in fact, where we sponsored and contributed to the <a href="https://www.smartdataforum.org/">Smart Data Forum</a>. The Department for Business and Trade within the UK government defines smart data as “the secure sharing of customer data with authorized third parties (ATPs).” Of course, that language articulates only the first step of the overall puzzle, and the Smart Data agenda is much broader. The UK is designing funding and a number of other strategies to advance this vision.</p>
+
+<p>Globally, the OECD also appears to be exploring interventions in this space, as it <a href="https://mydata.org/2024/05/29/mydata-goes-to-brussels/">runs a consultation through 2024</a> on the concept of “trusted data intermediaries;” the <a href="https://www.mydata.org/">MyData</a> organization and community – itself oriented towards many intersecting goals – is providing a supporting role.</p>
+
+<p><strong>How our work at DTI fits into the picture</strong></p>
+
+<p>All these efforts share a lot with the effort to improve data portability, where DTI is most active. In all of these problem spaces, <strong>shared formats</strong> are crucial to make data accessible and avoid translation errors. <strong>Trust</strong> is paramount, ensuring that the senders and receivers of data can trust each other, and that the subject of the data where applicable is authorizing the transfer. An important concept is the ability to bootstrap through <strong>discovery,</strong> so that stakeholders can hope to learn who has the data they need, at what Internet address, and what procedure to use to access the data.</p>
+
+<p>Can DTI’s work on the <a href="https://github.com/dtinit/data-transfer-project">Data Transfer Project</a> or on <a href="https://dtinit.org/trust">a trust framework</a> be considered part of data spaces in the broadest sense? We have collaborated with several of the aforementioned projects, but to call our work “data spaces” would be to blur our scope and complicate our requirements. Language is imprecise and we need to make sure not to overgeneralize simply based on using similar language. Both a railway flatcar and an Olympic shot putter are mechanisms that transfer iron from one location to another but the physical differences are so obvious we wouldn’t try to unify those both under a “metal transport” solution. We call user data “data” when we generalize but it’s often more accurately called “content”, and user content such as email, photos or social media posts are not the subject of any existing data spaces (though rates of photo uploads, magnitudes of social media activity, moderation or harmful content rates and other activity data around content might sooner be).</p>
+
+<p>In some ways, personal data transfer is simpler. There are fewer parties involved in personal data transfer – only the user, the source for their data and the destination. In data spaces, the data flows of an entire industry include data that is public as well as private, as well as data that is proprietary to businesses. The data flows of an entire industry can originate in many more places, can involve multilayer trust relationships, and multi-step data translations, transfers and aggregations. In other ways the personal data transfer requirements are more demanding, because our use cases always involve user consent or initiation and privacy concerns, whereas often data spaces involve sharing non-personal data such as government data, business data and aggregated anonymized consumer data.</p>
+
+<p>Could personal data transfer be included under the large umbrella of data spaces work anyway, to achieve unification, at least when the personal data transfer relates to a topic of a data space (such as how personal retail activity is data that a user might want to download or transfer, but also part of retail supply chain data as a whole)? Certainly in some cases, but such an approach might come with unacceptable delay in arriving at solutions. Engineers know that trying to solve too many problems at once can result in untamable complexity. Consider the complexity of Gaia-X’s specifications for <a href="https://docs.gaia-x.eu/technical-committee/data-exchange/23.11/dewg/">data exchange services</a>, for example. This complexity may be appropriate to the outcome of boosting the effectiveness of an entire industry, but it might be overkill for simply allowing a user to transfer their calendar from one service to another. We can work on these smaller simpler standalone features and gain the benefit of making the solutions available more quickly to users while at the same time opening doors to competitiveness and innovation even from small startups.</p>
+
+<p><strong>Looking to the future</strong></p>
+
+<p>Ultimately some of this work may converge anyway, and in the meantime we can share expertise at a high level because these efforts are complementary. In addition to exchanging notes on governance and trust models, we can share experience with schema specifics and detailed use cases. I hope and expect that we will align strategies where we can, to better shape together and measure the impact of these efforts for our global digital future.</p>
+
+
+  <br/>
+  <br/>
+  <div class="post_next"><a class="button" href="/blog/2024/10/08/global-policy-round-up">Next Post</a></div>
+  <div class="post_previous">
+    <a class="button" href="/blog/2024/09/10/uk-vision-paper">Previous Post</a>
+  </div>
+
+
+</div>
+<div class="blog-sidebar">
+
+  <section>
+    <div >
+        <h2 style="text-align: center">Catch up on the latest from DTI</h2>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/28/year-3-growth">
+            <strong>
+                Year 3 for DTI brings growth
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-28 00:00:00 +0300">
+            January 28, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">social</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/14/what-ban-data">
+            <strong>
+                What the TikTok ban means for your data
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-14 00:00:00 +0300">
+            January 14, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/17/reciprocity-returns">
+            <strong>
+                Reciprocity and holiday returns
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-17 00:00:00 +0300">
+            December 17, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/03/establishing-trust-model">
+            <strong>
+                Establishing trust in data portability - DTI&#39;s Trust Model
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-03 00:00:00 +0300">
+            December 3, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">engagement</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/19/encouraging-public-engagement">
+            <strong>
+                Data portability and public engagement
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-19 00:00:00 +0300">
+            November 19, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/05/us-vision-paper">
+            <strong>
+                A policy vision for portability in the United States
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-05 00:00:00 +0300">
+            November 5, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/22/trusted-data-access">
+            <strong>
+                Trusted data access and transfer, in many contexts
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-22 00:00:00 +0300">
+            October 22, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/08/global-policy-round-up">
+            <strong>
+                Global Data Portability Policy Round-Up
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-08 00:00:00 +0300">
+            October 8, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/24/spaces-portability">
+            <strong>
+                Data spaces and data portability
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-24 00:00:00 +0300">
+            September 24, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/10/uk-vision-paper">
+            <strong>
+                DTI’s UK tech policy vision
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-10 00:00:00 +0300">
+            September 10, 2024
+        </time>
+
+        <br/>
+
+        
+    </div>
+</section>
+
+
+</div>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

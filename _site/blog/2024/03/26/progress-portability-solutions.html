@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Progress towards real world portability solutions | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Progress towards real world portability solutions" />
+<meta name="author" content="Chris Riley" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We are celebrating a milestone on our work to build a DTP-powered music playlist transfer tool - code from both Apple and Google is now in the DTP repo." />
+<meta property="og:description" content="We are celebrating a milestone on our work to build a DTP-powered music playlist transfer tool - code from both Apple and Google is now in the DTP repo." />
+<link rel="canonical" href="http://localhost:4000/blog/2024/03/26/progress-portability-solutions" />
+<meta property="og:url" content="http://localhost:4000/blog/2024/03/26/progress-portability-solutions" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-03-26T00:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Progress towards real world portability solutions" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chris Riley"},"dateModified":"2024-03-26T00:00:00+03:00","datePublished":"2024-03-26T00:00:00+03:00","description":"We are celebrating a milestone on our work to build a DTP-powered music playlist transfer tool - code from both Apple and Google is now in the DTP repo.","headline":"Progress towards real world portability solutions","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2024/03/26/progress-portability-solutions"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"},"name":"Chris Riley"},"url":"http://localhost:4000/blog/2024/03/26/progress-portability-solutions"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header light">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-light-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav light">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <div class="blog-content">
+  <div class="post-meta">
+    <span>Chris Riley</span>
+    <time class="post-date" datetime="">
+      Mar 26, 2024
+    </time><div>
+      <ul class="post-tags"><li>tools</li></ul>
+    </div></div>
+
+  <h1>Progress towards real world portability solutions</h1>
+
+  <p>The phrase “data portability” can make the average non-techie, non-policy listener’s eyes glaze over. Even if the values involved are universal, the mechanics of moving data are technical, and few people want the details. But when I’m in a cab from an airport traveling for work or talking to one of my in-laws about what I do, I can always get their attention with a good example. And most often, I tell them about music playlists.</p>
+
+<p>Playlists are an investment. We put time into making them, but more than that, we put emotion into them. And we’ve been making playlists for different services for decades. We live in a time of healthy competition among music services. Yet I’ve talked to a number of people who feel locked in to a single music service or even unable to try a different service because of their playlists. This is a solvable problem.</p>
+
+<p>There are some third party solutions for it, in some cases. I will point interested readers to our new <a href="https://portmap.dtinit.org/">Portability Map tool</a>, where we endeavor to be comprehensive, and provide information and links to some of these tools - and we’re always eager to add more, so let us know if there’s anything we’re missing! But users need more than what the market today is offering.</p>
+
+<p>Central to the origin story for DTI is the <a href="https://github.com/dtinit/data-transfer-project">open source Data Transfer Project</a> - a code base that reflects the collaborations of companies towards a family of direct data portability tools. Some of the entries in the Portability Map are for DTP-powered tools, including in particular several photo transfer tools, built and tested and available to billions of internet users today.</p>
+
+<p>One of the newest DTP-powered efforts is coming close to fruition, after months of investment by two of our industry partners. Portability engineers working at Google and Apple have been working together to develop, test, and ship a music playlist transfer tool between Apple Music and YouTube Music. And we’ve reached a major milestone in that both companies are now sharing their work in the open source DTP repository.</p>
+
+<p>Navigating large code bases isn’t for the faint of heart, so let me give a few shortcuts. The DTP model connects service endpoints through individual extensions to and from a shared data model. The codebase has a <a href="https://github.com/dtinit/data-transfer-project/tree/master/extensions/data-transfer">shared folder for these extensions</a>. A few clicks into that file tree will lead to Apple’s recently posted <a href="https://github.com/dtinit/data-transfer-project/tree/master/extensions/data-transfer/portability-data-transfer-apple/src/main/java/org/datatransferproject/datatransfer/apple/music">music importer code</a> and Google’s <a href="https://github.com/dtinit/data-transfer-project/tree/master/extensions/data-transfer/portability-data-transfer-google/src/main/java/org/datatransferproject/datatransfer/google/music">importer and exporter tools</a>. This new DTP-powered music playlist transfer tool has been under development for months. At DTI, we’re extremely pleased by, and thankful for, the extensive collaboration and contributions.</p>
+
+<p>The DTP model is powerful. It produces shared code for smooth and effective server to server transfer. In the context of playlists, that means accurate matches between tracks (i.e. not just matching the artist name and song name, but striving for the same song version) and generally high reliability and trust in the transaction. It also means storing and representing the shared data model for music playlists in a public repository, which helps lower burdens on new services that want to be recipients of, or senders of, music playlist data.</p>
+
+<p>But, the portability world has grown in recent years. The Digital Markets Act, recently enforceable in the European Union, has contributed to this. In the post-DMA data portability era, designated gatekeepers have developed and continue to make available interfaces that allow companies to approach them directly and establish bespoke transfer mechanisms, not reliant on a shared data model or open source code base.</p>
+
+<p>These third-party interfaces add substantial value to the ecosystem. There is no silver bullet for data portability, now or in the future. The post-DMA world will have more of all of these approaches: shared principles, shared standards, shared transfer tools, and bespoke mechanisms.</p>
+
+<p>DTP as a technology continues to have its unique utility, and because of that DTI as an organization will continue to invest in it, alongside our partners. It will continue to power many transfers between DTI partners, and will continue to provide easy entry points for the verticals in DTP, particularly photos and, soon, playlists. The future of DTP remains as a core tool in the transfer toolkit, and for its use cases, it will be best-of-class for user experience. But developing, testing, and deploying new tools, while ensuring a high level of fidelity of data, in complex systems that involve multiple parties, takes time, and that’s unlikely to change, particularly as portability offerings grow and diversify.</p>
+
+<p>DTI as an organization is built to serve a mission: “Empower people by building a vibrant ecosystem for simple and secure data transfers.” That means doing more than just investing in DTP. That’s why we built the Portability Map, why we’ll continue our work on <a href="https://dtinit.org/trust">trust models</a>, why we contribute to standards with the W3C, and why we’re supporting the fediverse ecosystem, among other activities.</p>
+
+<p>Today we’re celebrating a step forward for DTP as we work alongside our partners at Apple and Google to deliver new world-class tools to help people. We do so in the context of our, and their, other efforts, many of which will get more airtime in the weeks and months to come. But I believe the most durable progress will come from the most user-friendly solutions, and for that reason in particular, we are excited for this progress.</p>
+
+<p>And, we’re always open to collaborating with more music streaming services, so please reach out if you’re interested!</p>
+
+
+  <br/>
+  <br/>
+  <div class="post_next"><a class="button" href="/blog/2024/04/09/reporting-out-summit">Next Post</a></div>
+  <div class="post_previous">
+    <a class="button" href="/blog/2024/03/12/access-content-spoofing-threats">Previous Post</a>
+  </div>
+
+
+</div>
+<div class="blog-sidebar">
+
+  <section>
+    <div >
+        <h2 style="text-align: center">Catch up on the latest from DTI</h2>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/28/year-3-growth">
+            <strong>
+                Year 3 for DTI brings growth
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-28 00:00:00 +0300">
+            January 28, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">social</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/14/what-ban-data">
+            <strong>
+                What the TikTok ban means for your data
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-14 00:00:00 +0300">
+            January 14, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/17/reciprocity-returns">
+            <strong>
+                Reciprocity and holiday returns
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-17 00:00:00 +0300">
+            December 17, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/03/establishing-trust-model">
+            <strong>
+                Establishing trust in data portability - DTI&#39;s Trust Model
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-03 00:00:00 +0300">
+            December 3, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">engagement</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/19/encouraging-public-engagement">
+            <strong>
+                Data portability and public engagement
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-19 00:00:00 +0300">
+            November 19, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/05/us-vision-paper">
+            <strong>
+                A policy vision for portability in the United States
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-05 00:00:00 +0300">
+            November 5, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/22/trusted-data-access">
+            <strong>
+                Trusted data access and transfer, in many contexts
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-22 00:00:00 +0300">
+            October 22, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/08/global-policy-round-up">
+            <strong>
+                Global Data Portability Policy Round-Up
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-08 00:00:00 +0300">
+            October 8, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/24/spaces-portability">
+            <strong>
+                Data spaces and data portability
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-24 00:00:00 +0300">
+            September 24, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/10/uk-vision-paper">
+            <strong>
+                DTI’s UK tech policy vision
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-10 00:00:00 +0300">
+            September 10, 2024
+        </time>
+
+        <br/>
+
+        
+    </div>
+</section>
+
+
+</div>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

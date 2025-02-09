@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Trusted data access and transfer, in many contexts | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Trusted data access and transfer, in many contexts" />
+<meta name="author" content="Lisa Dusseault" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Our focus is on data portability between cloud-based services, which has technical differences from other kinds of access. Consistency is valuable." />
+<meta property="og:description" content="Our focus is on data portability between cloud-based services, which has technical differences from other kinds of access. Consistency is valuable." />
+<link rel="canonical" href="http://localhost:4000/blog/2024/10/22/trusted-data-access" />
+<meta property="og:url" content="http://localhost:4000/blog/2024/10/22/trusted-data-access" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-10-22T00:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Trusted data access and transfer, in many contexts" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lisa Dusseault"},"dateModified":"2024-10-22T00:00:00+03:00","datePublished":"2024-10-22T00:00:00+03:00","description":"Our focus is on data portability between cloud-based services, which has technical differences from other kinds of access. Consistency is valuable.","headline":"Trusted data access and transfer, in many contexts","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2024/10/22/trusted-data-access"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"},"name":"Lisa Dusseault"},"url":"http://localhost:4000/blog/2024/10/22/trusted-data-access"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header light">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-light-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav light">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <div class="blog-content">
+  <div class="post-meta">
+    <span>Lisa Dusseault</span>
+    <time class="post-date" datetime="">
+      Oct 22, 2024
+    </time><div>
+      <ul class="post-tags"><li>trust</li></ul>
+    </div></div>
+
+  <h1>Trusted data access and transfer, in many contexts</h1>
+
+  <p>At DTI, our focus is on data portability, but it’s even more specific than that: DTI was launched out of an open source collaboration, the <em>Data Transfer Project (DTP)</em>, that service providers run to allow them to host user-initiated personal data transfers with other DTP participants over the Internet.</p>
+
+<p>Because of this origin story, we’ve focused mostly on how data sharing works in the cloud. But we also think that how data sharing works on devices is both instructive and is part of a system that should be considered holistically. To be able to deliver on our mission, it’s critical for us to understand the context in which it operates. That’s perhaps most visible when we work on <a href="https://dtinit.org/blog/2024/10/08/global-policy-round-up">public policy</a>, but it’s true in all our efforts. For example, we looked at other kinds of registries when beginning to develop <a href="https://dtinit.org/blog/2024/07/30/trust-work-updates">our own trust work</a>.</p>
+
+<p>This article considers how DTI’s focus, cloud-based portability, relates to device-based portability - focusing on technologies for access and authentication, and on the nature and mechanisms of trust.</p>
+
+<h2 id="in-the-cloud">In the Cloud</h2>
+
+<p>The technology context for accessing personal data in the cloud is mostly HTTP-based:</p>
+
+<ul>
+  <li>Data requests are almost always HTTP requests.</li>
+  <li>Authenticating the user happens with a login Web page.</li>
+  <li>Ideally, any time sensitive personal data is involved and login happens by username/password, the password page is followed by a two-factor verification or one-time password confirmation (again sent via HTTP requests)</li>
+  <li>Every single HTTP data request by the user after login needs to be securely associated with a session, through a session token that links to the user, because HTTP is technically a “stateless” protocol.</li>
+  <li>Data access requests from other parties also happen over stateless HTTP. It’s challenging to associate one session key with another session’s authorization choices in a stateless protocol that does nothing to link these individual HTTP requests.</li>
+</ul>
+
+<p>Cloud services don’t always offer the ability to share personal data with 3rd parties. Sometimes when users really want to share data between services, they share their service password (and sometimes even a one-time-password configuration!) with a 3rd party. Now the 3rd party is authorized as the user, using a session token that isn’t really distinguishable from one of the user’s normal session tokens that keep them logged in. Because the 3rd party is not distinguishable from the real user in any reliable way, we don’t consider this data access - it is really <em>identity access</em>, and leaves the user open to many possible abuses.</p>
+
+<p>When there are systems in place to allow 3rd-party access <em>authorized by</em> the user but not <em>authenticating as</em> the user, this is occasionally solved with <a href="https://oauth.net/2/">OAuth</a> but often solved by the service using a non-standard process (including, for example, a developer program with statically issued API keys, and configuration/settings data to know if each user authorized the 3rd party). Solutions for consent UX and consent management are not widely standardized, interoperable or reusable.</p>
+
+<h2 id="on-the-device">On the Device</h2>
+
+<p>Modern device platforms went through an early, fast and comprehensive process of designing data access Application Programming Interfaces (APIs) in order to enable many exciting applications to be installed and make the devices more useful. Personal data access is much more ubiquitous and consistent on devices, as compared to the diverse access offerings of independent online services (some very small) which hold personal data.</p>
+
+<p>The most commonly used APIs today are the Swift and Objective-C APIs on iOS, and the <a href="https://developer.android.com/reference/">Android Platform APIs</a> on Android devices. Data requests through these APIs are always local to the device: there needs to be an installed app on the device to request the data from the OS on the device. Thus:</p>
+
+<ul>
+  <li>The user unlocks their device using a passcode, facial recognition or fingerprint. Once the device is unlocked, almost all choices are considered authorized. Some sensitive operations might prompt another identity check, returning to the unlocked state.</li>
+  <li>While the phone is unlocked, application data requests happen inside the user’s “session.” There’s no need to re-login the user.</li>
+  <li>Data access requests to the platform API either come from apps that were developed by the platform company, or from apps which the user decided to install - another mark of trust.</li>
+  <li>For security, apps are prevented from full access to all the data held by the device through sandboxing - limiting access to only data types or collections that have been granted.</li>
+  <li>When a data request is made from an application through the API to the part of the OS holding data, it’s good modern practice to prompt the user for consent. Many data access requests are made while the user is actively interacting with the app, and the user can consent or deny immediately when a popup asks them to.</li>
+  <li>Consent can later be reviewed and revoked by the user.</li>
+</ul>
+
+<p>None of these device-context data access requests involve HTTP or OAuth. So among other distinctions, authentication, authorization and revocation solutions all must be completely different technology compared to cloud solutions.</p>
+
+<h2 id="consistency-of-trust-criteria">Consistency of Trust Criteria</h2>
+
+<p>Both device and cloud environments limit nearly all platform-mediated user-requested transfer of personal data to 3rd parties that the platform has “verified” or given an API key to. Such limitations can be an important part of protecting users from legitimate-seeming data requests that aren’t really legitimate, or of protecting the cloud platform from Denial-of-Service attacks and other Internet abuses (or both reasons, or more reasons). Whatever the reason for establishing these verification or access programs, the result is that only approved 3rd parties get meaningful access.</p>
+
+<p>These are all <em>Trust Lists</em>, and they all involve <em>Trust Criteria</em>,** **even if different companies use different terms such as telling 3rd parties to apply to a “developer program” or “add-on marketplace.” Although they may serve several purposes, including explicitly limiting some uses of data received via the APIs, one avowed purpose is to protect the user from granting access to a 3rd party that is likely to put personal data at risk.</p>
+
+<p>In part because of the conflicting needs being served by these lists, some of these trust lists are run in very arbitrary ways. In 2023, both <a href="https://techcrunch.com/2023/03/29/twitter-announces-new-api-with-only-free-basic-and-enterprise-levels/">Twitter</a> (now X) and <a href="https://techcrunch.com/2023/07/04/reddit-braces-for-life-after-api-changes/">Reddit</a> drastically cut back on API access. In both cases, they at least initially cut off apps used to help individuals with accessibility needs, to moderate harmful content, and to do public-interest research.</p>
+
+<p>Platforms with broad functionality may evaluate the same 3rd party in different ways internally. The same startup with an app in a mobile app marketplace may also apply for access to the same company’s cloud data APIs. Should we expect a 3rd party to be approved across the board, or must they apply in each context? How should trust renewal in the cloud impact consent given on devices?</p>
+
+<p>As an example of a poor outcome due to inconsistency: a startup gets their app approved for installation on my device, and I choose to install it and consent to data access. The same startup applies for cloud data API access (to the same large platform OR to another platform I’ve synched the same data to), in a process that requires them to provide their updated SOC2 report annually. One day, that startup gets bought by another company and stops providing their SOC2 report. Without a holistic view of the system, that startup is likely to continue getting my data via the app I installed on my phone, even as their access to cloud data is cut off.</p>
+
+<p>It’s not a fun system from the perspective of the startup, either. A startup can work hard on its business plan and software, but still have severe “unknowns” in getting approval for data access. The risk and effort required increase with the number of inconsistent trust lists and trust criteria, making the startup have to painfully choose which things to cut from their plan.</p>
+
+<p>Managing our privacy and data access authorizations can only work smoothly if we are able to apply consistent choices.</p>
+
+<ul>
+  <li>If I trust a “FamilyShare” service with my photos on the device, I should be able to consent to their access to the same data in the cloud.</li>
+  <li>If my consent for “FamilyShare” access expires in 6 months in the cloud or I’m prompted to renew, the same expiration should be the default on my device.</li>
+  <li>If “FamilyShare” loses its trusted status due to violation of its own terms or repeated data breaches, that organization should lose trust and access on devices as well as in the cloud.</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+
+<p>Sharing best-practices between device and cloud environments makes sense even when they’re completely independent. UX researchers who look at both environments can spread those best practices. However, to maximally benefit the user’s experience, we need to go further than just best practices and look at consistency.</p>
+
+<p>People don’t divide up their technology use into the clean boxes that programmers and protocol designers might prefer to have. Consent and trust are issues that cut across the technology silos, as they must.</p>
+
+
+  <br/>
+  <br/>
+  <div class="post_next"><a class="button" href="/blog/2024/11/05/us-vision-paper">Next Post</a></div>
+  <div class="post_previous">
+    <a class="button" href="/blog/2024/10/08/global-policy-round-up">Previous Post</a>
+  </div>
+
+
+</div>
+<div class="blog-sidebar">
+
+  <section>
+    <div >
+        <h2 style="text-align: center">Catch up on the latest from DTI</h2>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/28/year-3-growth">
+            <strong>
+                Year 3 for DTI brings growth
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-28 00:00:00 +0300">
+            January 28, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">social</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/14/what-ban-data">
+            <strong>
+                What the TikTok ban means for your data
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-14 00:00:00 +0300">
+            January 14, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/17/reciprocity-returns">
+            <strong>
+                Reciprocity and holiday returns
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-17 00:00:00 +0300">
+            December 17, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/03/establishing-trust-model">
+            <strong>
+                Establishing trust in data portability - DTI&#39;s Trust Model
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-03 00:00:00 +0300">
+            December 3, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">engagement</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/19/encouraging-public-engagement">
+            <strong>
+                Data portability and public engagement
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-19 00:00:00 +0300">
+            November 19, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/05/us-vision-paper">
+            <strong>
+                A policy vision for portability in the United States
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-05 00:00:00 +0300">
+            November 5, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/22/trusted-data-access">
+            <strong>
+                Trusted data access and transfer, in many contexts
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-22 00:00:00 +0300">
+            October 22, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/08/global-policy-round-up">
+            <strong>
+                Global Data Portability Policy Round-Up
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-08 00:00:00 +0300">
+            October 8, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/24/spaces-portability">
+            <strong>
+                Data spaces and data portability
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-24 00:00:00 +0300">
+            September 24, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/10/uk-vision-paper">
+            <strong>
+                DTI’s UK tech policy vision
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-10 00:00:00 +0300">
+            September 10, 2024
+        </time>
+
+        <br/>
+
+        
+    </div>
+</section>
+
+
+</div>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

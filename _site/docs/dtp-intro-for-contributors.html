@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data Transfer Project — Intro for Potential Contributors | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Data Transfer Project — Intro for Potential Contributors" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Home page for the Data Transfer Initiative, a nonprofit organization dedicated to promoting data transfers" />
+<meta property="og:description" content="Home page for the Data Transfer Initiative, a nonprofit organization dedicated to promoting data transfers" />
+<link rel="canonical" href="http://localhost:4000/docs/dtp-intro-for-contributors" />
+<meta property="og:url" content="http://localhost:4000/docs/dtp-intro-for-contributors" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Data Transfer Project — Intro for Potential Contributors" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Home page for the Data Transfer Initiative, a nonprofit organization dedicated to promoting data transfers","headline":"Data Transfer Project — Intro for Potential Contributors","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"}},"url":"http://localhost:4000/docs/dtp-intro-for-contributors"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header dark">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-dark-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav dark">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <h1 id="data-transfer-project--intro-for-potential-contributors">Data Transfer Project — Intro for Potential Contributors</h1>
+
+<p>If you already have concluded your service or a service you contribute to could usefully run a DTP server, or participate as an exporter or importer in the DTP ecosystem, this document should help get you started.  (On the other hand if you aren’t sure about the applicability of DTP, about who runs it or why, checkout our <a href="dtp-what-is-it">“what is it” intro</a>.)</p>
+
+<p>This overall introduction document explains how the pieces of DTP work together, and some sub-sections are key to some types of engineers involved in a DTP project:</p>
+<ul>
+  <li>Ops or release engineers – <a href="#system">System components and interfaces</a></li>
+  <li>Frontend engineers – <a href="#frontend">How to drive DTP from frontend </a></li>
+  <li>Backend engineers – <a href="#extensions">Extensions</a></li>
+</ul>
+
+<h2 id="data-verticals">Data verticals</h2>
+
+<p>DTP currently supports a number of explicit data verticals: types of content that have different properties than other types of content.  Furthermore, DTP participants may support some data verticals but not all.  For example, a video hosting service may not have a way to intake static images and photos or a good place to put them, but still support importing videos.  As another example, a social media site might import and export social media posts, and it might also have a way to export photos – but the social media site may not be able to import galleries of standalone images.</p>
+
+<p>Current data verticals include:</p>
+<ul>
+  <li>Calendar</li>
+  <li>Contacts</li>
+  <li>Mail</li>
+  <li>Music playlists</li>
+  <li>Photos</li>
+  <li>Social media posts</li>
+  <li>Tasks</li>
+  <li>Videos</li>
+</ul>
+
+<p>If you choose to participate in DTP, you may choose to support one of these verticals to begin with, and expand to support others if and as appropriate.  DTP maintainers might be interested in discussing additional verticals but are focused on consumer use cases, not enterprise.</p>
+
+<h2 id="roles">Roles</h2>
+
+<p>In DTP, the data exporter service is the active role.  The data exporter service, usually at the request of a user, initiates authentication and authorization with the destination or importer service and then, if successful, begins sending data objects to the destination service.</p>
+
+<p>Data exporter services run DTP as a server inside their environment.  For example, on a photo sharing service, a user with 1000 photos on the service is most likely to go to that service to find out what they can do with those photos and how to export them from the photo service.  When the service runs DTP, the service has options to export photos to any participant in DTP that supports importing (taking on the destination role) and also supports the photo data type.</p>
+
+<p><img title="DTP Architecture" alt="A boxes-and-arrows diagram of the exporter and importer roles and how they interact with their system components, including the DTP server with code contributed by both roles." src="/images/DTP architecture.png" /></p>
+
+<p>Data importing services contribute code to DTP that knows how to call their intake APIs.  They also run an authentication service and may need UX to authorize and direct data transfers to their ultimate destination.</p>
+
+<p>Most services operate in both roles, triggering DTP themselves when users setup a data transfer operation, but also having their importing API endpoints called by DTP code hosted by other exporters.</p>
+
+<p>Some data destinations are only importers, and these are usually providing a backup service rather than a hosting service similar to the exporter.  One benefit to being an exporter in DTP is found in plugging into a set of backup services that people would like to transfer their data to in the form of data archives.</p>
+
+<h2 id="security">Security</h2>
+
+<p>DTP was designed with privacy and security in mind.  Some of the components relating to security are worth discussing just in a brief overview.</p>
+
+<ul>
+  <li>
+    <p>OAuth is the default service used to authenticate and authorize the user on the remote system.  The destination service probably has different user accounts than the exporting service, and may need to enforce quotas or other access control.  Thus, the user probably authenticates once to the exporting service (or has a session), and again to an entirely different account on the destination service, where they also explicitly authorize the transfer.</p>
+  </li>
+  <li>
+    <p>Keys are used to authorize any data transfer connection at all between two services, regardless of user authentication and authorization.  The exporter will need an API key for each destination service, saved in the Key Store accessible to DTP (see the <a href="#system">system description</a> below).  A DTP participant may store and enable as few or as many keys as they find appropriate.</p>
+  </li>
+  <li>
+    <p>Content storage security is not altered or affected by DTP.</p>
+  </li>
+  <li>
+    <p>Transport security breaks down into a few different network communications.  Communication between DTP and the exporter’s data APIs should be over HTTPs and properly authorized; furthermore this probably runs within the exporter’s overall service.  Communication between DTP and any content destination MUST be encrypted – this can be done in the destination’s implementation of the Importer interface by simply calling HTTPS-secured APIs. More generally: any network connections involved in running DTP, even if they are within a service’s boundaries, can and should be secured connections.</p>
+  </li>
+</ul>
+
+<p>Beyond system security, it’s always a good idea to set user expectations appropriately around what is being done with their data.  A good front-end exporter implementation, before triggering a data transfer job, will set expectations with the user about how much data is being transfered and where to.</p>
+
+<h2 id="extensions">Extensions</h2>
+
+<p>An <em>extension</em> in DTP is how a participant contributes code that knows how to authenticate or transfer data to or from their particular service.  The main extension involved in porting data is a <a href="https://github.com/dtinit/data-transfer-project/tree/master/extensions/data-transfer" target="blank">Transfer Extension</a>, implementing the <a href="https://github.com/dtinit/data-transfer-project/blob/master/portability-spi-transfer/src/main/java/org/datatransferproject/spi/transfer/extension/TransferExtension.java" target="blank">TransferExtension</a> interface, including an Exporter, an Importer, or both.  Those Exporters and Importers can register to handle different data verticals and make any combination of API requests needed to initiate or react to a data transfer.</p>
+
+<p>When a new participant contributes an extension to DTP that supports the Importer functionality, that code can potentially be called as soon as other participants deploy the new version with the new Importer.</p>
+
+<p>Exporter functonality, on the other hand, starts to function when the DTP participant has deployed a DTP on a server connected into their own service, complete with the system components listed in the next section.</p>
+
+<h2 id="system">System components and interfaces</h2>
+
+<p>Besides DTP and the service providers extension within DTP, a few other system components must exist in the service environment.  These components, required to make DTP fully operational and make it available to users, are very much in the control of the service provider, and few assumptions have been made about whether they’re hosted, standalone, or what software provides the service, so long as it can be used by the DTP extension for the purpose needed.  A provider operating DTP as an exporter will need:</p>
+
+<ul>
+  <li>A content storage backend with an API for accessing content that’s going to be ported — you may already have this.  This API will be called by the java code you write in your DTP extension objects implementing the TransferExtension,  Exporter and Importer interfaces.</li>
+  <li>A key store, for storing the API keys of other systems (see <a href="#security">Security</a> ).  This secure storage service will be called by the java code you write in your DTP extension objects implementing the <a href="https://github.com/dtinit/data-transfer-project/blob/master/portability-spi-cloud/src/main/java/org/datatransferproject/spi/cloud/storage/AppCredentialStore.java" target="blank">AppCredentialStore</a> interface.</li>
+  <li>A job store, to store information about data transfer jobs in progress.  This storage service will be called by the java code you write in your DTP extension objects implementing the <a href="https://github.com/dtinit/data-transfer-project/blob/master/portability-spi-cloud/src/main/java/org/datatransferproject/spi/cloud/storage/JobStore.java" target="blank">JobStore interface</a>.</li>
+  <li>A frontend that can call DTP to create and check on transfer jobs.  The frontend interacts with DTP by calling a set of endpoints already built into DTP.</li>
+</ul>
+
+<p>A provider acting as an importer, via their extension code in DTP, will need to have running in their service:</p>
+<ul>
+  <li>An API for importing content objects — you may already have this.</li>
+  <li>An OAuth endpoint (or similar) to authenticate the user and grant access to the import API on their behalf.</li>
+</ul>
+
+<p>The DTP server itself runs a Jetty Servlet, and the project comes with Kubernetes and Docker configuration to reduce deployment overhead.</p>
+
+<h2 id="frontend">How to drive DTP from the frontend</h2>
+
+<p>This section may be needed by frontend developers who are building access to DTP into Web pages, or other developers triggering DTP jobs from components such as automated scripts.</p>
+
+<p>Note that DTP has a <a href="https://github.com/dtinit/data-transfer-project/tree/master/distributions/demo-server">demo Web site</a> that illustrates how to trigger DTP jobs, but this Web site is not run by anybody in production — it is used for testing, development and to illustrate use of DTP.</p>
+
+<p>The endpoints are defined using a <a href="https://github.com/dtinit/data-transfer-project/blob/master/extensions/transport/portability-transport-jettyrest/src/main/java/org/datatransferproject/transport/jettyrest/rest/JerseyTransportBinder.java" target="blank">Jersey TransportBinder</a>, including endpoints to</p>
+<ul>
+  <li>create transfer job</li>
+  <li>reserve worker</li>
+  <li>get reserved worker</li>
+  <li>start transfer job</li>
+  <li>get transfer job [status]</li>
+</ul>
+
+<h2 id="other-things-you-need-to-know">Other things you need to know</h2>
+
+<p><strong>Access Keys in Development</strong> – DTP participants know that developers need API keys to test code in-progress, and many already have ways to get such API keys (e.g. Google has service accounts).  If the API key does not have sufficient privileges to do real tests (quota or other limits) the DTP maintainer community has folks that can help fix this.  Once a DTP participant is getting ready to deploy, some “real” API keys will be needed.</p>
+
+<p><strong>DTP maintainer community</strong> – Ask DTI about joining the DTP maintainer chat channels.  Once an implementation is seriously underway, DTP participants may meet regularly to solve problems and keep changes coordinated, until the new extension or any refactoring required begins to settle down and the project moves into deployment phases.  Note that DTP maintainers sign a Contributor License Agreement - this is what allows each contributor to legally run all the code in DTP without license concerns.</p>
+
+<p><strong>DTI’s role</strong> – The Data Transfer Initiative is an independent non-profit working with and supported by corporate partners.  While DTI facilitates and supports work on DTP, especially for new folks getting started, partnership in DTI is not a requirement to participate in or run DTP or have access to DTP communities.</p>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

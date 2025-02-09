@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Digging in on personal AI portability | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Digging in on personal AI portability" />
+<meta name="author" content="Chris Riley" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="To prepare for a portable, personal AI future, it’s important to articulate what, exactly, should be ported." />
+<meta property="og:description" content="To prepare for a portable, personal AI future, it’s important to articulate what, exactly, should be ported." />
+<link rel="canonical" href="http://localhost:4000/blog/2024/06/04/digging-in-personal-AI" />
+<meta property="og:url" content="http://localhost:4000/blog/2024/06/04/digging-in-personal-AI" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-06-04T00:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Digging in on personal AI portability" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chris Riley"},"dateModified":"2024-06-04T00:00:00+03:00","datePublished":"2024-06-04T00:00:00+03:00","description":"To prepare for a portable, personal AI future, it’s important to articulate what, exactly, should be ported.","headline":"Digging in on personal AI portability","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2024/06/04/digging-in-personal-AI"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"},"name":"Chris Riley"},"url":"http://localhost:4000/blog/2024/06/04/digging-in-personal-AI"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header light">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-light-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav light">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <div class="blog-content">
+  <div class="post-meta">
+    <span>Chris Riley</span>
+    <time class="post-date" datetime="">
+      Jun 4, 2024
+    </time><div>
+      <ul class="post-tags"><li>AI</li></ul>
+    </div></div>
+
+  <h1>Digging in on personal AI portability</h1>
+
+  <p>Six months ago in this medium, <a href="https://dtinit.org/blog/2023/11/21/future-AI-portable">I offered an optimistic high-level arc</a> for the present and future of modern-day generative LLM technologies, from new, to widespread, to personal, to portable, and finally to empowered. The pace of change in AI conversations today is staggering. Yet, that vision remains intact. In this piece, I’ll dig in more on what data portability for generative technologies could and should entail, and how portability in this context can help lead to individual empowerment.</p>
+
+<p>The ability of LLMs to be customized through personalization is becoming clearer. ChatGPT took a large step forward with its announcement of “<a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">memory</a>” functions. ChatGPT can store memories, disable memories, view memories, and improve the experience through memories.</p>
+
+<p>Compare ChatGPT’s memories with a web browser’s history and cookies. Web browsers store and use this information to help users remember and reconnect with what they have seen and done online. Browser users can see the stored information and delete it in a fine-grained manner - and at least temporarily, tell the browser to operate in a “private” mode where it does not store such data. Critically, when you want to use a new Web browser, you can import your history and your cookies from another browser.</p>
+
+<p>Will the personalizations users provide to generative AI systems be as firmly under user control and as portable, or will lock-in effects develop? Regulators worldwide, already concerned with several dimensions of generative AI systems (alongside their enthusiasm, of course), are unlikely to take lock-in well – particularly European officials if the result is a perception of more market power for American or Chinese companies.</p>
+
+<p>How far can generative AI portability go? If the goal of portability – at least in the context of competition policy – is to allow transference of key elements of a user’s experience from one service to another, that may be impossible. Differences in model weights and training sets, and tailoring of specific services to different contexts and use cases, all factor heavily into the experience, likely far more so than the impact of downstream customization powered by individual user data and experience. But such non-personalized training is (immensely) business sensitive, and beyond the typical contours of data portability.</p>
+
+<p>DTI’s <a href="https://dtinit.org/assets/dti-onepager.pdf">portability principles</a> provide guidance for how such portability might be well scoped to be effective: “Portability policy should focus on user-created content and should not extend to data that negatively impacts the privacy of others or that is used to improve a service (e.g. “inferred data”).” What data could fall within this set? Here are three categories to consider:</p>
+
+<ol>
+  <li><strong>Input data</strong>: Data entered by the user of the system directly, as part of system use. For most generative LLM systems this takes the form of questions or “prompts.” Such data would seem to be at the core of data portability, and in fact is typically made available for individual user export in modern LLM systems.</li>
+  <li><strong>Output data</strong>: The direct outputs of generative LLM systems, as provided to users in dialogue, provide critical information in conjunction with user prompts to build an understanding of user expectations and activity. While these are directly created by the LLM system, the user interaction arguably constitutes co-creation. Furthermore, no other individual user interaction is at risk of being shared, and while this may be a question meriting more research, reverse-engineering proprietary information such as model weights from even a large collection of input/output pairs would seem difficult given challenges to explainability.</li>
+  <li><strong>Observed data</strong>: Some modern-day generative AI systems are observing user activity in either the digital or the physical world, through cameras or audio recording devices or simple screen captures; Microsoft’s Copilot+ PC is a powerful example. Such observed data is, arguably, a form or special case of input data, as it is a capture of the user’s actions. It also represents quite a significant potential for lock-in – if only one system has access to a user’s digital memories, the cost of switching to another becomes quite high.</li>
+</ol>
+
+<p>A notable exclusion from these three categories is derived data, produced by the processing of input data through internal mechanisms, and not shared back to the user but retained for future internal use. This parallels past portability distinctions, and seems important to preserve here.</p>
+
+<p>Observed data makes the prospect of portability quite complicated, however – particularly given the difficulties of distinguishing and excluding data based on the level of processing. Not all observed data will be retained, assuredly; the storage limitations would be significant, and requiring all raw data to be kept solely for portability could make systems unworkable. But could the selection of what observed data to store itself reveal anything proprietary? How can such a risk be assessed and mitigated?</p>
+
+<p>Maybe most concerningly: Can a requirement to provide only observed and unprocessed data be easily obviated by processing incoming data with proprietary means, thus rendering it nonportable, and then throwing out the raw data?</p>
+
+<p>There aren’t obvious or easy answers to these questions, and it will take some significant time and effort to work through them. But in the future as portability obligations and generative AI system personalization collide, making progress will matter significantly. Working towards a shared data model and portability approach could provide a useful forum to both develop and encode answers.</p>
+
+<p>The future for autonomy in AI remains far from clear. <a href="https://ai-regulation.com/what-if-you-move-on-from-your-ai-companion-data-portability-rights-in-the-era-of-autonomous-ai-agents/">Cornelia Kutterer contends</a>, in a piece <a href="https://dtinit.org/assets/DTI-Data-Portability-Compendium.pdf">recently published by DTI</a>, that we will see three layers of agents emerging, including platforms, applications, and services of various forms. Her intersection of the values and legal frameworks applicable to this question is a useful baseline. Complementing it will be more work in the direction of this piece - for example, what, exactly, should be ported to transfer a user’s experience meaningfully, without compromising security or secrets?</p>
+
+<p><strong>DTI Updates:</strong></p>
+
+<ul>
+  <li>During our all-day <a href="https://dtinit.org/docs/feb29summitagenda">Data Transfer Summit</a> in Washington DC earlier this year, seven scholars presented original research on data portability; we have now published on our website the final versions of these papers in a new volume: “<a href="https://dtinit.org/assets/DTI-Data-Portability-Compendium.pdf">The Present and Future of Data Portability</a>.”</li>
+  <li>At this year’s CPDP conference in late May, Delara hosted <a href="https://www.cpdpconferences.org/cpdp-panels/data-portabilitys-new-horizons-ai-the-dma-and-the-quest-for-online-sovereignty">a workshop on data portability, AI, and the DMA</a>, together with European academic Tommaso Crepax. It was well attended and well-received.</li>
+  <li>We submitted a funding proposal to the <a href="https://infrastructureinsights.fund/wp-content/uploads/2024/03/DIIF-RfP4.pdf">Digital Infrastructure Insights Fund</a>. The future of <a href="https://dtinit.org/trust">our trust efforts</a> will take on a few forms, and one of those is technical, so we are seeking funding to support an initial implementation of a neutral 3rd-party trust registry for the specific context of data portability.</li>
+</ul>
+
+
+  <br/>
+  <br/>
+  <div class="post_next"><a class="button" href="/blog/2024/06/18/vision-paper">Next Post</a></div>
+  <div class="post_previous">
+    <a class="button" href="/blog/2024/05/21/previews-upcoming">Previous Post</a>
+  </div>
+
+
+</div>
+<div class="blog-sidebar">
+
+  <section>
+    <div >
+        <h2 style="text-align: center">Catch up on the latest from DTI</h2>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/28/year-3-growth">
+            <strong>
+                Year 3 for DTI brings growth
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-28 00:00:00 +0300">
+            January 28, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">social</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/14/what-ban-data">
+            <strong>
+                What the TikTok ban means for your data
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-14 00:00:00 +0300">
+            January 14, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/17/reciprocity-returns">
+            <strong>
+                Reciprocity and holiday returns
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-17 00:00:00 +0300">
+            December 17, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/03/establishing-trust-model">
+            <strong>
+                Establishing trust in data portability - DTI&#39;s Trust Model
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-03 00:00:00 +0300">
+            December 3, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">engagement</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/19/encouraging-public-engagement">
+            <strong>
+                Data portability and public engagement
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-19 00:00:00 +0300">
+            November 19, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/05/us-vision-paper">
+            <strong>
+                A policy vision for portability in the United States
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-05 00:00:00 +0300">
+            November 5, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/22/trusted-data-access">
+            <strong>
+                Trusted data access and transfer, in many contexts
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-22 00:00:00 +0300">
+            October 22, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/08/global-policy-round-up">
+            <strong>
+                Global Data Portability Policy Round-Up
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-08 00:00:00 +0300">
+            October 8, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/24/spaces-portability">
+            <strong>
+                Data spaces and data portability
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-24 00:00:00 +0300">
+            September 24, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/10/uk-vision-paper">
+            <strong>
+                DTI’s UK tech policy vision
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-10 00:00:00 +0300">
+            September 10, 2024
+        </time>
+
+        <br/>
+
+        
+    </div>
+</section>
+
+
+</div>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>A framework for trusted, safe third-party data transfers | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="A framework for trusted, safe third-party data transfers" />
+<meta name="author" content="Chris Riley" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="At DTI, we’re looking to build a framework to establish trust between data hosts and recipients, keeping users safe and empowered at the same time." />
+<meta property="og:description" content="At DTI, we’re looking to build a framework to establish trust between data hosts and recipients, keeping users safe and empowered at the same time." />
+<link rel="canonical" href="http://localhost:4000/blog/2023/11/07/framework-trust" />
+<meta property="og:url" content="http://localhost:4000/blog/2023/11/07/framework-trust" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-07T00:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A framework for trusted, safe third-party data transfers" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chris Riley"},"dateModified":"2023-11-07T00:00:00+03:00","datePublished":"2023-11-07T00:00:00+03:00","description":"At DTI, we’re looking to build a framework to establish trust between data hosts and recipients, keeping users safe and empowered at the same time.","headline":"A framework for trusted, safe third-party data transfers","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2023/11/07/framework-trust"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"},"name":"Chris Riley"},"url":"http://localhost:4000/blog/2023/11/07/framework-trust"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header light">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-light-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav light">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <div class="blog-content">
+  <div class="post-meta">
+    <span>Chris Riley</span>
+    <time class="post-date" datetime="">
+      Nov 7, 2023
+    </time><div>
+      <ul class="post-tags"><li>trust</li></ul>
+    </div></div>
+
+  <h1>A framework for trusted, safe third-party data transfers</h1>
+
+  <p>DTI is a small organization tasked with a big mission: building a healthy data portability ecosystem. Most of our work is collaborative in nature – identifying what we can do alongside other organizations, including of course our partners, but also other organizations both large and small, from industry and civil society.</p>
+
+<p>One of those collaborative efforts that we’re starting now focuses on ensuring that direct data transfers between services – whether through <a href="https://dtinit.org/documentation">our own open-source technology platform DTP</a> or some other mechanism – don’t pose undue and avoidable risk for users. Our intended output is a framework to establish trust between data hosts and recipients, keeping users safe and empowered at the same time.</p>
+
+<p>The history of data portability is in users downloading data from the host and uploading it to their chosen destination; but its future lies in direct transfers between source and destination. Direct transfer makes data portability more accessible, both by reducing technical literacy barriers and by removing the need for users to download large quantities of data over residential or mobile internet connections, and to devices that may have limited storage or functionality.</p>
+
+<p>And legislation increasingly reflects that advantage. The Digital Markets Act, an important EU law with <a href="https://dtinit.org/blog/2023/06/06/complex-problem-space">frequent</a> <a href="https://dtinit.org/blog/2023/10/24/global-developments">mention</a> in this blog, incorporates third parties in its Article 6(9), the data portability obligation imposed on designated gatekeepers:</p>
+
+<blockquote>
+  <p><em>The gatekeeper shall provide end users and third parties authorised by an end user, at their request and free of charge, with effective portability of data provided by the end user or generated through the activity of the end user in the context of the use of the relevant core platform service, including by providing, free of charge, tools to facilitate the effective exercise of such data portability, and including by the provision of continuous and real-time access to such data.</em></p>
+</blockquote>
+
+<p>But there is some inherent risk in transferring personal data directly to third parties, in that the data recipient may not be able to (or may not even intend to) keep the data and data subject safe. This may seem to introduce a tension, in that the user has asked the host to transfer the user’s data to the specified recipient, and exploring the risk of transfer contemplates the possibility of the data host saying “no”. However, there are scenarios – such as where the recipient has not been honest with the user about their future actions – where blocking the transfer request is the right thing to do, and where it is necessary for user safety.</p>
+
+<p>Reasonable safeguards can establish a foundation of trust to minimize this risk. And in contrast to what might seem to be misalignment in an individual transaction, building trust supports and grows data portability by helping people feel that the systems for engineering data transfers keep the process safe – without undermining their ability to exercise conscious choice and control over personal data.</p>
+
+<h2 id="a-foundation-of-trust-is-valuable">A foundation of trust is valuable.</h2>
+
+<p>Where direct transfers are executed by a server running DTP, we have confidence in user safety in the transaction, because we know our partners. Our architecture typically incorporates code provided by the data recipient (in the form of an adapter to translate to, and call, the recipient’s import API) into DTP software when it is run by the data host. While DTP is open-source and thus the tools can be adapted and run by anyone, taking part in the architecture as we have set it up includes agreeing to a set of principles (as articulated in <a href="https://dtinit.org/assets/dtp-overview.pdf">the 2018 Data Transfer Project Overview paper</a>) that lay a foundation of trust.</p>
+
+<p>But there’s no generalized agreement or framework for establishing trust in direct data transfers. We envision a shared set of commitments for would-be data recipients (or “third parties,” where the user and the data host are the first and second parties) in some context in which they can carry force. These would include things along the lines of “don’t hide from your users what you’re doing with their data.” There’s no way to guarantee fully against harm, but safeguards can be designed that help minimize risk, while maximizing user empowerment in data portability.</p>
+
+<h2 id="this-feels-like-but-is-different-from-data-protection-and-privacy">This feels like, but is different from, data protection and privacy.</h2>
+
+<p>In jurisdictions with adequate data protection law, these sorts of commitments should be easy to agree to, because all data processors are required to be responsible and transparent. But not every jurisdiction has such laws. And users will request transfers that cross jurisdictions (absent the introduction of greater harm in the form of internet segmentation!). Furthermore, even within a jurisdiction with strong protection rules, while the arm of the law may be long it does not often move quickly; <a href="https://dtinit.org/blog/2023/08/01/law-isnt-code">law is not self-executing</a>.</p>
+
+<p>Direct data transfers reduce friction in data portability; they also thus reduce friction of potentially harmful or simply inadvertent data transfers. Having more levers to enforce good behavior up front prevents some amount of irreversible harm – because data once shared can’t readily (if ever) be un-shared.</p>
+
+<p>For many people reading this, I expect the proposal is starting to sound like a “trust framework” from the privacy universe. In many different contexts over many years, industry participants have gathered together and built shared trust frameworks, voluntary commitments to specific practices that will help promote privacy and good user outcomes. While these can lead to significant benefits, voluntary commitments can also be seen as distractions to delay or avoid regulation.</p>
+
+<p>Here, however, the obligation to transfer data to third parties is already law (in some places). The envisioned framework isn’t trying to create a new norm or an obligation <em>per se</em>. Rather, it’s motivated by the open-textured nature of laws like the DMA, which leave some implementation questions for designated gatekeepers to take the first steps. A shared framework wouldn’t undermine the relevant law in any way, but rather would strengthen it.</p>
+
+<h2 id="security-and-trust-are-better-built-together">Security and trust are better built together.</h2>
+
+<p>Direct data transfers begin with the data host’s Application Programming Interfaces, or APIs. Wherever such APIs provide access to personal data – as portability APIs must – they are authenticated to ensure that the request for access is authorized. In addition to authentication, API access policies typically include other requirements and limitations on the rate and other terms of access. To transfer data through APIs, organizations must exchange API keys, and make various commitments to do so.</p>
+
+<p>Similarly here, an <em>ad hoc</em> solution is possible. Each data exporter could adopt its own framework for security and privacy commitments that must be made by third parties requesting user data transfer to establish trust. However, a shared framework is preferable – it encourages greater neutrality and consistent application of review, as well as more efficient and effective external stakeholder participation in development. Additionally, data recipients would face an easier path to data access, needing only demonstrate adherence to a single framework to satisfy multiple participating data hosts.</p>
+
+<h2 id="so-lets-build-something">So let’s build something.</h2>
+
+<p>At DTI, we are starting to talk to a range of key stakeholders about this problem, including data hosts as well as organizations like <a href="https://www.codepolicy.org/">CODE</a> working on data portability and user empowerment. We anticipate that there may be multiple efforts in this vein, including efforts we’re not aware of, so our first step is to engage with a lot of different perspectives, and identify any useful resources that already exist. Then we can determine whether there’s a path forward to develop a shared framework and what that path looks like.</p>
+
+<p>We’re early in this process. We’ll provide periodic updates in this format, and in the meantime, if you’re interested in working on this with us, <a href="mailto:secpriv@dtinit.org">send us an email</a>!</p>
+
+
+  <br/>
+  <br/>
+  <div class="post_next"><a class="button" href="/blog/2023/11/21/future-AI-portable">Next Post</a></div>
+  <div class="post_previous">
+    <a class="button" href="/blog/2023/10/24/global-developments">Previous Post</a>
+  </div>
+
+
+</div>
+<div class="blog-sidebar">
+
+  <section>
+    <div >
+        <h2 style="text-align: center">Catch up on the latest from DTI</h2>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/28/year-3-growth">
+            <strong>
+                Year 3 for DTI brings growth
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-28 00:00:00 +0300">
+            January 28, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">social</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/14/what-ban-data">
+            <strong>
+                What the TikTok ban means for your data
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-14 00:00:00 +0300">
+            January 14, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/17/reciprocity-returns">
+            <strong>
+                Reciprocity and holiday returns
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-17 00:00:00 +0300">
+            December 17, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/03/establishing-trust-model">
+            <strong>
+                Establishing trust in data portability - DTI&#39;s Trust Model
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-03 00:00:00 +0300">
+            December 3, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">engagement</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/19/encouraging-public-engagement">
+            <strong>
+                Data portability and public engagement
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-19 00:00:00 +0300">
+            November 19, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/05/us-vision-paper">
+            <strong>
+                A policy vision for portability in the United States
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-05 00:00:00 +0300">
+            November 5, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/22/trusted-data-access">
+            <strong>
+                Trusted data access and transfer, in many contexts
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-22 00:00:00 +0300">
+            October 22, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/08/global-policy-round-up">
+            <strong>
+                Global Data Portability Policy Round-Up
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-08 00:00:00 +0300">
+            October 8, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/24/spaces-portability">
+            <strong>
+                Data spaces and data portability
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-24 00:00:00 +0300">
+            September 24, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/10/uk-vision-paper">
+            <strong>
+                DTI’s UK tech policy vision
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-10 00:00:00 +0300">
+            September 10, 2024
+        </time>
+
+        <br/>
+
+        
+    </div>
+</section>
+
+
+</div>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>A Threat Model for Data Portability Using a Reference Architecture | Data Transfer Initiative</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="A Threat Model for Data Portability Using a Reference Architecture" />
+<meta name="author" content="Lisa Dusseault" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Define categories of threats to data transfer, and examine which threats are easiest to handle with a reference architecture." />
+<meta property="og:description" content="Define categories of threats to data transfer, and examine which threats are easiest to handle with a reference architecture." />
+<link rel="canonical" href="http://localhost:4000/blog/2024/01/16/threat-model-pt-one" />
+<meta property="og:url" content="http://localhost:4000/blog/2024/01/16/threat-model-pt-one" />
+<meta property="og:site_name" content="Data Transfer Initiative" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-16T00:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A Threat Model for Data Portability Using a Reference Architecture" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lisa Dusseault"},"dateModified":"2024-01-16T00:00:00+03:00","datePublished":"2024-01-16T00:00:00+03:00","description":"Define categories of threats to data transfer, and examine which threats are easiest to handle with a reference architecture.","headline":"A Threat Model for Data Portability Using a Reference Architecture","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2024/01/16/threat-model-pt-one"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/favicon.png"},"name":"Lisa Dusseault"},"url":"http://localhost:4000/blog/2024/01/16/threat-model-pt-one"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Transfer Initiative" />
+  <meta property="og:image" content="/images/meta_logo.png" />
+  <meta property="twitter:card" content="/images/meta_logo.png" />
+  <meta property="twitter:image" content="/images/meta_logo.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer data-domain="dtinit.org" src="https://plausible.io/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <link rel="stylesheet" href="/assets/css/pygments-default.css?v=62cba44e6e7e0afe323675725b92a84afb35341f">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51297152-3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51297152-3');
+
+  </script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+  <header class="main-header light">
+  <a href="/" class="header-logo">
+    <img src="/images/dtinit_logo-light-sm.svg" alt="Data Transfer Initiative" />
+    <link rel="icon" type="image/png"  href="/images/dtinitfavicon.png">
+
+
+  </a>
+</header>
+
+  <nav class="main-nav light">
+  <ul class="nav-list">
+    
+      <li class="nav-item">
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/about" >
+          About
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/our-work" >
+          Our Work
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a href="/blog/" >
+          Blog
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  <section class="hero">
+  
+</section>
+
+
+  <main class="main-content" >
+    <div class="blog-content">
+  <div class="post-meta">
+    <span>Lisa Dusseault</span>
+    <time class="post-date" datetime="">
+      Jan 16, 2024
+    </time><div>
+      <ul class="post-tags"><li>security</li></ul>
+    </div></div>
+
+  <h1>A Threat Model for Data Portability Using a Reference Architecture</h1>
+
+  <p>In a <a href="https://dtinit.org/blog/2023/12/04/reference-architecture">prior newsletter/blog</a>, I outlined a bunch of requirements and a rough architecture for server-to-server data transfers that are initiated when data owners request transfer. Although many things were left unspecified, enough assumptions have been made to start to talk about what threats exist when doing these kinds of data transfers.</p>
+
+<p>Here’s a quick overview/TL;DR: The threat landscape as it stands today can be broken down into three rough buckets. One is handled primarily by secure communications pathways, including disclosure or loss of privacy and tampering. The second is best handled by ensuring the service providers involved are legitimate and taking reasonable security precautions. And the third is the “more complicated” bucket: harmful content, spoofing, and access control issues. In this piece I’ll explain the overall threat landscape more and dig into the first two buckets in depth, but proper treatment of that big third bucket will unfortunately have to wait for a future post!</p>
+
+<h2 id="sourcing-the-threat-categories">Sourcing the threat categories</h2>
+
+<p>I came up with a list. Most of the threat types or categories in this list can be found in well-known threat frameworks, particularly <a href="https://en.wikipedia.org/wiki/STRIDE_(security)">STRIDE</a> (security) and <a href="https://linddun.org/">LINDDUN</a> (privacy). ITU’s <a href="https://www.itu.int/rec/T-REC-X.800-199103-I/en">X.800</a> and <a href="https://www.itu.int/rec/T-REC-X.805-200310-I/en">X.805</a> offer security architectures for system interconnection and for end-to-end communication respectively, with many threat considerations framed more positively as “security services” than as threats.</p>
+
+<p>Security Threats involving possessing data/content aren’t always the same as the threats to servers or protocols, so it’s also useful to consult <a href="https://csrc.nist.gov/csrc/media/publications/nistir/8062/draft/documents/nistir_8062_draft.pdf">NIST’s catalog</a> (Appendix E) of data threats and Camille François’ <a href="https://www.ivir.nl/publicaties/download/ABC_Framework_2019_Sept_2019.pdf">Actor-Behavior-Content framework</a> (ABC).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Threat category</th>
+      <th style="text-align: left">Sources / more info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Disclosure of the data being transferred</td>
+      <td style="text-align: left">STRIDE, X.805</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Indirect loss of privacy, e.g. linking, identifying, detecting</td>
+      <td style="text-align: left">LINDDUN and NIST</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tampering</td>
+      <td style="text-align: left">STRIDE, X.805</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Non-Repudiation</td>
+      <td style="text-align: left">X.800</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Denial of Service</td>
+      <td style="text-align: left">STRIDE, X.805</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elevation of Privilege</td>
+      <td style="text-align: left">STRIDE</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Non-Compliance</td>
+      <td style="text-align: left">LINDDUN</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Harmful Content</td>
+      <td style="text-align: left">ABC</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Spoofing and related bad actor activity</td>
+      <td style="text-align: left">STRIDE, X.805</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Permission and access control challenges</td>
+      <td style="text-align: left">LINDDUN and other themes that arose</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Evaluating each of these threat categories with a high-level architecture to compare against allows for some threat categories to be set aside as mostly solved. Sometimes we can note that more detailed decisions made within the reference architecture can be of further help mitigating threats, and that’s useful as a checklist for future design work.</p>
+
+<p>Some threat types are similar enough to problems that data source and destination services already have to handle that we can use those services’ existing solutions. That’s not to say those solutions are easy (content moderation is very hard!) but they may be routine - the experience and expertise are there to deal with these threats, and the threats can often be handled the same way that they are dealt with when direct user content contributions are involved.</p>
+
+<h1 id="recapitulation-of-reference-architecture">Recapitulation of Reference Architecture</h1>
+
+<p>Rather than just refer to the last blog post in this series for the reference architecture, I wanted to briefly re-explain it. The exploration of requirements and scope in that post led to a number of decisions, with one major decision left open: data transfer could be initiated by the source service holding the data or it could be initiated by the destination requesting access to the data. That leads to two very similar architecture diagrams, and two very mirrored sets of steps to start a transfer. One architecture is source-initiated, and the other is destination-initiated.</p>
+
+<p>Both alternatives:</p>
+<ul>
+  <li>Use <a href="https://developers.google.com/identity/protocols/oauth2/web-server">OAuth to authorize</a> one server to the other with the user’s consent;</li>
+  <li>Can authenticate the user to both sides;</li>
+  <li>Involve vetting the destination service and (if needed) the source;</li>
+  <li>Allow the user to use Web pages to choose data and destination; and</li>
+  <li>Use secure transport for all interactions.</li>
+</ul>
+
+<p><img src="/images/blog/source-initiated-steps.png" alt="Steps and parties involved in source-initiated transfer" class="blog-image" /></p>
+
+<p>In source-initiated transfer, illustrated above:</p>
+
+<ol>
+  <li>User authenticates (login, etc) to the source service</li>
+  <li>User sets up a data transfer, including choosing what data and what service to send it to.</li>
+  <li>Source makes sure that there is a secure domain associated with a vetted destination before continuing.</li>
+  <li>a) Source initiates the OAuth flow, resulting in authorizing the two services to each other. 
+  b) During this, destination requires authentication (eg. login or session key).</li>
+  <li>Data transfer can now begin using a protocol or API over secure transport. The source may use the destination’s API, the destination may use the source’s API, or they may use a standard protocol.</li>
+</ol>
+
+<p><img src="/images/blog/destination-initiated-steps.png" alt="Steps and parties involved in destination-initiated transfer" class="blog-image" /></p>
+
+<p>In destination-initiated transfer, second picture:</p>
+
+<ol>
+  <li>User authenticates (login, etc) to the destination service.</li>
+  <li>User chooses to load data in from another service.</li>
+  <li>Destination initiates OAuth flow, requesting authorization for access to the user’s data. (a) Source requires authentication (login or session key).  (b) Source also checks that the destination is in the vetted list.
+(c) Source also prompts the user to select data to transfer.</li>
+  <li>After complete OAuth flow, data transfer can begin, using any API or protocol over secure transport.</li>
+</ol>
+
+<p>Because these approaches both do the data transfer over secure transport, and both allow the source of data to check the destination’s domain against a list of vetted destinations, they both meet the requirements. Actually the destination can add a step to either architecture to do its own vetting of the data source service, if confirming the identity of the source service is necessary in a given use case (see for example data and content threats below).</p>
+
+<h2 id="using-a-secure-transport-helps-with-threats">Using a secure transport helps with threats</h2>
+
+<p>If we stipulate that all the interactions in our reference architecture diagrams happen over secure transport, especially the data transfer itself (big arrow), that helps with many threats.</p>
+
+<h3 id="disclosure-or-loss-of-privacy">Disclosure or loss of privacy</h3>
+
+<p>Much protection from simple exposure of data in transit is prevented by using secure transport. The source and the destination both have access to the data in most cases, but that’s the user’s intent anyway. Secure transport protocols are mature and well-tested, so we can fairly confidently say that this problem can be solved. Of course, the same precautions that are required whenever secure transport is used must be applied. For example, when TLS is used to secure HTTP traffic, the <a href="https://security.stackexchange.com/questions/139176/details-of-tls-certificate-verification">domain certificates of hosts must be checked</a> using well-known steps.</p>
+
+<h3 id="indirect-loss-of-privacy">Indirect Loss of Privacy</h3>
+
+<p>Linking and identifying are when privacy and confidentiality expectations are violated not by direct access to private information, but by combining other information. For content transfers, we might consider some of the following things confidential:</p>
+
+<ul>
+  <li>The list of contents (album or directory names, data object names)</li>
+  <li>The amount of data transferred</li>
+  <li>The date and time data was transferred</li>
+  <li>The account name, session tokens, etc.</li>
+</ul>
+
+<p>Because the setup of a data transfer happens over secure transport, the selection or filter provided by the user is going to be protected. Then, because the data transfer happens in the cloud, we find we have the excellent property that one user’s data transfer traffic disappears anonymously in the midst of a lot of other traffic.</p>
+
+<p>Many API endpoint addresses and content addresses must be kept confidential to maintain privacy against indirect breaches. Historically this has caused <a href="https://medium.com/@thezedwards/the-2020-url-querystring-data-leaks-millions-of-user-emails-leaking-from-popular-websites-to-39a09d2303d2">much loss of privacy</a> often with no user visibility into the situation. Whatever protocol/API is chosen for server-to-server traffic, many addresses, labels and identifiers must be secured as well as the content being transferred. This can include URLs for user accounts, URL parameters with user account information or directory names, and other metadata. All these tokens must be secured within the secure transport and not be visible as unencrypted protocol header or envelope data. This is a known principle in using secure transport and many good solutions are known and commonly used.</p>
+
+<h3 id="tampering">Tampering</h3>
+
+<p>Tampering is quickly dealt with because transport security not only protects the privacy of data being transferred, it also prevents an attacker from modifying the data. It’s important for secure transport to protect the setup also, because we don’t want an attacker to tamper with the setup of the data transfer and try to send the data to a different destination or choose a different selection of data.</p>
+
+<p>If I seem to be waving this off too quickly, wait until I discuss bad actors. I’m interpreting tampering for now as having somebody in the path of transferred data (or the information needed to set up a transfer of data) modifying it en route without authorization, and I’m interpreting other problems as lying within other threat categories.</p>
+
+<h2 id="vetting-source-and-destination-help">Vetting source and destination help</h2>
+
+<p>Many threats are greatly mitigated by vetting the source of data as well as the destination, depending on the use case. Often it must be both! Services acting as data sources can be harmed by sending data to unverified destinations even if the user requested the transfer. Likewise, services receiving data transfers may be harmed by malicious behavior of unverified sources.</p>
+
+<p>Of course, just verifying a service doesn’t guarantee good behavior, but it goes a long way. There’s no guarantee at all against services “going rogue” - behaving responsibly from one day to the next and building up access and reputation, until one day the service starts behaving maliciously. In the context of data transfers, at least the user is involved in the process. Not only do the source and destination services vet each other, but also the user is actively choosing to send data. Thus, a cautious user could choose not to share data with a service they consider more risky.</p>
+
+<p>Examples where trusting the data partner not to act too maliciously is important, are found within each threat category below.</p>
+
+<h3 id="non-repudiation">Non-Repudiation</h3>
+
+<p>We can imagine either the source server or the user repudiating some content:</p>
+
+<ul>
+  <li>The user might deny having posted some content to the source; or</li>
+  <li>The source might deny that some content was ever posted or deny the timestamp for the post.</li>
+</ul>
+
+<p>This kind of repudiation is mostly dealt with by deciding that the source and destination can vet each other and communicate over secure transport.</p>
+
+<p>This can be important in some cases! A user moving their social media from one server to another might want to set up their account with a history of posts made elsewhere. A post made in 2020 might be moved to a new server in 2023, and we’d like to know if we’re just supposed to take that on faith or if there’s any evidence that it really was originally posted in 2020. The <a href="https://dtinit.org/events">DTI Fediverse Miniconf</a> considered issues like these – why some actors might want to make an account appear several years old when it isn’t, why that’s bad – and discussion can be found in <a href="https://dtinit.org/docs/dtp-federated-miniconference-report">the report</a>.</p>
+
+<p>Non-repudiation turns out to be better solved when direct server-to-server data transfer is used, because the source can believably assert provenance. This is better than when users download unsigned data and upload it to a new destination, where the destination service has no ability to confirm if the user tampered with their own data.</p>
+
+<h3 id="denial-of-service-dos">Denial of service (DOS)</h3>
+
+<p>DOS threats are already routine for many sites, with or without data transfer functionality. We want to make sure that data transfer doesn’t significantly increase DOS exposure, especially because data portability will result in more data transfer moved more quickly if it’s successful. So let’s break it down a bit:</p>
+
+<ul>
+  <li>Some parts of transfer setup will probably occur using Web pages and forms, and online services already must know how to protect DOS attacks on those.</li>
+  <li>OAuth is a widely deployed protocol with a <a href="https://www.rfc-editor.org/rfc/rfc6819.html">well-known threat model</a> including DOS attack considerations.</li>
+  <li>Let’s decide now that it’s OK for services to apply rate throttling or storage quotas to incoming data or data requests.</li>
+  <li>It helps that the services can vet each other, if one service throttles to such a low rate that it causes performance problems for the service trying to collate and send data, this can be negotiated between parties.</li>
+</ul>
+
+<p>There are some system design details to setup data transfer to happen gracefully and efficiently (without accidental DOS effects). If a data transfer is set up with the scope communicated in advance, then the destination service knows to expect a large transfer, and can set aside resources or throttle the connection appropriately. If the passive party sends throttling or quota limits in advance, the active party can work within those or notify the user quickly. These details would be good to consider when the data transfer details are worked out, but the high-level architecture already looks pretty promising.</p>
+
+<h3 id="elevation-of-privilege">Elevation of privilege</h3>
+
+<p>Elevation of Privilege is considered a system security threat that occurs when attackers try to do unexpected things, like overflow buffers, to try to gain access to system resources they otherwise wouldn’t be able to. With this architecture, user interface components and protocol implementations need to have the same protections they would in any other part of the servicers’ user interfaces. Connections to other services, because they are vetted, are at relatively low risk but still good API safety practices should be followed. These protections are all within the power of each service to provide for themselves.</p>
+
+<h3 id="non-compliance">Non-compliance</h3>
+
+<p>Non-compliance is a threat when a system that tries to comply with regulations is made non-compliant by participating in data transfer. Any company that has a compliance function already puts controls in place to stay compliant no matter what data users request or upload, so much of this is already in the services’ control.</p>
+
+<p>Many compliance regulations that apply to companies hosting content are driven by the content itself, its subject matter or representation. However, there are additional regulations and policies that are not about what is in the content but how the company handles it.</p>
+
+<table class="blog-tables">
+<tr>
+<th>Compliance Considerations</th> <th>Considerations from content itself</th><th>  Issues in how content is handled </th>
+</tr>
+<tr>
+<td><i>From regulations</i> </td>
+<td>
+<ul>
+<li>Child-appropriate content laws (COPPA) </li>
+<li>CSAM regulations</li>
+<li>Healthcare data (HIPAA)</li>
+<li>Personal data protections (GDPR) </li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Limits to where data may be sent - e.g. to companies located in certain states.</li>
+<li>Data deletion policies and requirements</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+<i>From company policies</i>
+</td>
+<td>
+<ul><li>Company policies on hate speech</li></ul>
+</td>
+<td>
+<ul>
+<li>Company’s Terms of Service, Privacy Policy, or customer contracts</li>
+<li>Data retention policies </li>
+</ul>
+</td>
+</tr>
+</table>
+
+<p>Compliance overlaps with several other threats. For example, a company can experience a breach that violates privacy expectations and the privacy breach may also cause it to be in violation of regulations or its own security policy or terms of service.</p>
+
+<p>For content hosting services, compliance considerations overlap especially with content moderation, but neither topic encompasses the other:</p>
+
+<p><img src="/images/blog/venn diagram moderation and compliance.png" alt="Venn diagram with overlap between moderation and compliance" class="blog-image" /></p>
+
+<p><em>Lines are blurry but some things overlap more than others</em></p>
+
+<p>The fact that data is transferred directly between vetted services may make it easier for many companies to ensure compliance. It’s likely that content that is acceptable on one service is also acceptable on another, for starters. The vetting/trusting process for data senders is more than users go through (users may try to circumvent policies or regulations and post content they’re not supposed to) and companies are less likely to get malicious content sent from another service than directly from users.</p>
+
+<p>There are definitely differences between different companies’ definitions of acceptable content and compliant behavior, however. Different jurisdictions, regulations applied to certain industries or services and not others, and different terms of service or privacy policies can all result in a need for the destination to filter content even when it comes from another service.</p>
+
+<p>Most of the work to ensure compliance must be done by each company on their own, for content provided directly from users as well as content provided via other services, so like denial of service and elevation of privilege, we can leave the handling of this threat in implementers’ hands, and the high-level architecture need not change. Low-level features might help, for example providing a content manifest before a data transfer begins, or providing metadata that the content source generated in its analysis of whether the data was acceptable to that service.</p>
+
+<h2 id="the-harder-threats">The harder threats</h2>
+
+<p>Having discussed the threats that are mostly handled by using a modern secure transport:</p>
+
+<ul>
+  <li>Disclosure or loss of privacy</li>
+  <li>Indirect loss of privacy</li>
+  <li>Tampering</li>
+</ul>
+
+<p>And the threats that are greatly mitigated by vetting service partners:</p>
+
+<ul>
+  <li>Non-repudiation</li>
+  <li>Denial of Service</li>
+  <li>Elevation of Privilege</li>
+  <li>Non-Compliance</li>
+</ul>
+
+<p>I still have three threat categories left that are going to take longer to discuss and I’m leaving for the next blog post.</p>
+
+<ul>
+  <li>Harmful Content</li>
+  <li>Spoofing and Bad Actors</li>
+  <li>Permission and Access Control</li>
+</ul>
+
+<p>I kind of expected this to telescope into a three-parter blog post once I got started. Any bets on whether I’ll come up with a 4th part before part 3 is out? Stay tuned!</p>
+
+
+  <br/>
+  <br/>
+  <div class="post_next"><a class="button" href="/blog/2024/01/17/data-transfer-summit">Next Post</a></div>
+  <div class="post_previous">
+    <a class="button" href="/blog/2024/01/02/portability-predictions">Previous Post</a>
+  </div>
+
+
+</div>
+<div class="blog-sidebar">
+
+  <section>
+    <div >
+        <h2 style="text-align: center">Catch up on the latest from DTI</h2>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/28/year-3-growth">
+            <strong>
+                Year 3 for DTI brings growth
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-28 00:00:00 +0300">
+            January 28, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">social</li></ul>
+        <a style="text-decoration: none" href="/blog/2025/01/14/what-ban-data">
+            <strong>
+                What the TikTok ban means for your data
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2025-01-14 00:00:00 +0300">
+            January 14, 2025
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/17/reciprocity-returns">
+            <strong>
+                Reciprocity and holiday returns
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-17 00:00:00 +0300">
+            December 17, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/12/03/establishing-trust-model">
+            <strong>
+                Establishing trust in data portability - DTI&#39;s Trust Model
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-12-03 00:00:00 +0300">
+            December 3, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">engagement</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/19/encouraging-public-engagement">
+            <strong>
+                Data portability and public engagement
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-19 00:00:00 +0300">
+            November 19, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/11/05/us-vision-paper">
+            <strong>
+                A policy vision for portability in the United States
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-11-05 00:00:00 +0300">
+            November 5, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">trust</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/22/trusted-data-access">
+            <strong>
+                Trusted data access and transfer, in many contexts
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-22 00:00:00 +0300">
+            October 22, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/10/08/global-policy-round-up">
+            <strong>
+                Global Data Portability Policy Round-Up
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-10-08 00:00:00 +0300">
+            October 8, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">policy</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/24/spaces-portability">
+            <strong>
+                Data spaces and data portability
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-24 00:00:00 +0300">
+            September 24, 2024
+        </time>
+
+        <br/>
+
+        
+        <ul style="text-align: right" class="tag-list"><li class="tag-item">news</li></ul>
+        <a style="text-decoration: none" href="/blog/2024/09/10/uk-vision-paper">
+            <strong>
+                DTI’s UK tech policy vision
+            </strong>
+        </a>
+
+        <time style="text-align: right" class="post-date" datetime="2024-09-10 00:00:00 +0300">
+            September 10, 2024
+        </time>
+
+        <br/>
+
+        
+    </div>
+</section>
+
+
+</div>
+
+  </main>
+
+  <footer class="main-footer">
+  <a class="footer-links" href="/contact-us">Contact Us</a> |
+  <a class="footer-links"  href="/privacy-policy">Privacy Policy</a>
+
+  <aside class="social-icon-container">
+  <a class="social-icon" rel="me" href="https://techpolicy.social/@DTinitiative" target="_blank">
+    <img height="25px" src="/images/icons/mastodon-white.svg" alt="DTInit account on Mastodon" />
+  </a>
+  <a class="social-icon" href="/feed.xml">
+    <img height="25px" src="/images/icons/rss-outline.svg" alt="View our RSS feed"/>
+  </a>
+  <a class="social-icon" href="https://github.com/dtinit" target="_blank" rel="noopener nofollow me">
+    <img height="25px" src="/images/icons/github-outline.svg" alt="DTInit on Github" />
+  </a>
+  <a class="social-icon" rel="me" href="https://www.linkedin.com/company/data-transfer-initiative/" target="_blank">
+    <img height="25px" src="/images/icons/linkedIn-outline.svg" alt="DTInit on LinkedIn"/>
+  </a>
+</aside>
+
+</footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
